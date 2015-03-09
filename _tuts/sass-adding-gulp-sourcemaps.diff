@@ -1,0 +1,30 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index e69109d..b5357ed 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -1,8 +1,11 @@
+ var gulp = require('gulp');
+ var sass = require('gulp-sass');
++var sourcemaps = require('gulp-sourcemaps');
+ 
+ gulp.task('default', function() {
+     gulp.src('app/Resources/assets/sass/**/*.scss')
++        .pipe(sourcemaps.init())
+         .pipe(sass())
++        .pipe(sourcemaps.write('.'))
+         .pipe(gulp.dest('web/css'));
+ });
+diff --git a/package.json b/package.json
+index 49bd559..64bb1b0 100644
+--- a/package.json
++++ b/package.json
+@@ -9,7 +9,8 @@
+   },
+   "devDependencies": {
+     "gulp": "^3.8.11",
+-    "gulp-sass": "^1.3.3"
++    "gulp-sass": "^1.3.3",
++    "gulp-sourcemaps": "^1.5.0"
+   },
+   "scripts": {
+     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,0 +1,28 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index f3ba01c..a4e57f8 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -2,8 +2,13 @@ var gulp = require('gulp');
+ var sass = require('gulp-sass');
+ var sourcemaps = require('gulp-sourcemaps');
+ 
++var config = {
++    assetsDir: 'app/Resources/assets',
++    sassPattern: 'sass/**/*.scss'
++};
++
+ gulp.task('sass', function() {
+-    gulp.src('app/Resources/assets/sass/**/*.scss')
++    gulp.src(config.assetsDir+'/'+config.sassPattern)
+         .pipe(sourcemaps.init())
+         .pipe(sass())
+         .pipe(sourcemaps.write('.'))
+@@ -11,7 +16,7 @@ gulp.task('sass', function() {
+ });
+ 
+ gulp.task('watch', function() {
+-    gulp.watch('app/Resources/assets/sass/**/*.scss', ['sass'])
++    gulp.watch(config.assetsDir+'/'+config.sassPattern, ['sass'])
+ });
+ 
+ gulp.task('default', ['sass']);

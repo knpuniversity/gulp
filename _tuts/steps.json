@@ -19,7 +19,27 @@
             "id": "sass-sass-processing-a-single-file",
             "name": "Sass: Sass-processing a single file",
             "description": null
+        },
+        {
+            "id": "sass-adding-gulp-sourcemaps",
+            "name": "Sass: Adding gulp-sourcemaps",
+            "description": null
+        },
+        {
+            "id": "sass-creating-the-sass-task",
+            "name": "Sass: Creating the sass task",
+            "description": null
+        },
+        {
+            "id": "watch-adding-watch-task",
+            "name": "Watch: Adding watch task",
+            "description": null
+        },
+        {
+            "id": "watch-using-a-config-variable",
+            "name": "Watch: Using a config variable",
+            "description": null
         }
     ],
-    "sha": "c757425bc7cf668f12cb8f4783dd674ddfd6a9c5"
+    "sha": "c9f8fdf8a39542c1521f5a7393002cf07b187959"
 }

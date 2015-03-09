@@ -1,0 +1,26 @@
+diff --git a/app/Resources/assets/sass/styles.scss b/app/Resources/assets/sass/styles.scss
+index a6481c7..3dea95d 100644
+--- a/app/Resources/assets/sass/styles.scss
++++ b/app/Resources/assets/sass/styles.scss
+@@ -18,7 +18,7 @@ $font-font: 'Shadows Into Light', cursive;
+ }
+ 
+ .dino-name {
+-    color: #000;
++    color: #ff0000;
+     font-size: 1.5em;
+     text-align: center;
+ }
+diff --git a/gulpfile.js b/gulpfile.js
+index 4bc3817..f3ba01c 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -10,4 +10,8 @@ gulp.task('sass', function() {
+         .pipe(gulp.dest('web/css'));
+ });
+ 
++gulp.task('watch', function() {
++    gulp.watch('app/Resources/assets/sass/**/*.scss', ['sass'])
++});
++
+ gulp.task('default', ['sass']);
