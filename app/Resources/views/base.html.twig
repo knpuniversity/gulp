@@ -2,12 +2,46 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Journey to the Center of Symfony!{% endblock %}</title>
+        
+        {% block stylesheets %}
+            <!-- Bootstrap -->
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+            <!-- Custom CSS -->
+            <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+            <!-- Google Fonts -->
+            <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('dinosaur_list') }}">
+                        <img src="{{ asset('img/dino-logo.png') }}" alt="Dino logo">
+                    </a>
+                </div>
+            </div>
+        </nav>
+
         {% block body %}{% endblock %}
+
+        <div class="navbar-inverse navbar-static-bottom" role="navigation">
+            <div class="container">
+                <div class="navbar-text">
+                    <p>Journey to the Center of Symfony with your guide KnpUniversity</p>
+                </div>
+                <div class="navbar-text navbar-right">
+                    <p>Dino image credit to <a href="http://dinosaurs.about.com/od/typesofdinosaurs/tp/dinosaurgroups.htm" class="navbar-link">about.com</a></p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

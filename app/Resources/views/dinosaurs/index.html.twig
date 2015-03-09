@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="dino-header text-center">
+            <h1>Journey to the Center of the Earth</h1>
+            <h2 class="journey-font">DINOSAURS!</h2>
+        </div>
+        <div class="row">
+            {% for dino in dinos %}
+                <div class="center-block col-xs-12 col-sm-6 col-md-4">
+                    <a href="{{ path('dinosaur_show', {'id': dino.id}) }}">
+                        <img src="{{ dino.imageUrl }}"  alt="{{ dino.type }}" class="center-block img-thumbnail dino-img"/>
+                    </a>
+                    <br>
+                    <a href="{{ path('dinosaur_show', {'id': dino.id}) }}">
+                        <p class="dino-name">{{ dino.name }} the {{ dino.type }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
