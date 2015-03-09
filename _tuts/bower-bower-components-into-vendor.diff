@@ -19,8 +19,21 @@ index 5def2aa..6003041 100644
  /node_modules
  /web/css
 -
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index 272eba4..88e7e01 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -7,8 +7,6 @@
+         <title>{% block title %}Journey to the Center of Symfony!{% endblock %}</title>
+         
+         {% block stylesheets %}
+-            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.css') }}"/>
+-
+             <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+ 
+             <!-- Google Fonts -->
 diff --git a/gulpfile.js b/gulpfile.js
-index 3e9c06a..8972f9f 100644
+index c9fed1c..4478c6f 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -5,7 +5,8 @@ var config = {
@@ -33,10 +46,10 @@ index 3e9c06a..8972f9f 100644
  };
  var app = {};
  
-@@ -22,6 +23,7 @@ app.sass = function(paths, outputFilename) {
+@@ -22,6 +23,7 @@ app.addStyle = function(paths, outputFilename) {
  
  gulp.task('sass', function() {
-     app.sass([
+     app.addStyle([
 +        config.bowerDir+'/bootstrap/dist/css/bootstrap.css',
          config.assetsDir+'/sass/layout.scss',
          config.assetsDir+'/sass/styles.scss'

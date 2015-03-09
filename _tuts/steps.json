@@ -99,7 +99,17 @@
             "id": "styles-renaming-sass-task-to-styles",
             "name": "Styles: Renaming sass task to styles",
             "description": null
+        },
+        {
+            "id": "javascript-adding-the-scripts-tasks",
+            "name": "JavaScript: Adding the scripts tasks",
+            "description": null
+        },
+        {
+            "id": "javascript-uglify",
+            "name": "JavaScript: Uglify",
+            "description": null
         }
     ],
-    "sha": "dead5fc5652e108356c737b8edbdfa1bcce41ab0"
+    "sha": "8b1127a6bda0da973dfc378f77f573d596cb9aba"
 }

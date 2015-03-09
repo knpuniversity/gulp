@@ -1,0 +1,59 @@
+diff --git a/.gitignore b/.gitignore
+index 6003041..cfc40ec 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -12,3 +12,5 @@
+ /composer.phar
+ /node_modules
+ /web/css
++/web/js
++
+diff --git a/app/Resources/assets/js/main.js b/app/Resources/assets/js/main.js
+new file mode 100644
+index 0000000..d37f62e
+--- /dev/null
++++ b/app/Resources/assets/js/main.js
+@@ -0,0 +1,3 @@
++$(document).ready(function() {
++    $('.navbar-static-bottom').prepend('<span class="navbar-text">Life finds a way</span>');
++});
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index 88e7e01..bbbf2fa 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -40,6 +40,8 @@
+             </div>
+         </div>
+ 
+-        {% block javascripts %}{% endblock %}
++        {% block javascripts %}
++            <script src="{{ asset('js/site.js') }}"></script>
++        {% endblock %}
+     </body>
+ </html>
+diff --git a/gulpfile.js b/gulpfile.js
+index b4e595d..b719f1e 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -33,8 +33,19 @@ gulp.task('styles', function() {
+     ], 'dinosaur.css');
+ });
+ 
++gulp.task('scripts', function() {
++    gulp.src([
++        config.bowerDir+'/jquery/dist/jquery.js',
++        config.assetsDir+'/js/main.js'
++    ])
++        .pipe(plugins.plumber())
++        .pipe(plugins.concat('site.js'))
++        .pipe(gulp.dest('web/js'));
++});
++
+ gulp.task('watch', function() {
+-    gulp.watch(config.assetsDir+'/'+config.sassPattern, ['styles'])
++    gulp.watch(config.assetsDir+'/'+config.sassPattern, ['styles']);
++    gulp.watch(config.assetsDir+'/js/**/*.js', ['scripts']);
+ });
+ 
+-gulp.task('default', ['styles', 'watch']);
++gulp.task('default', ['styles', 'scripts', 'watch']);

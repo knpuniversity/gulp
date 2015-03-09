@@ -39,7 +39,7 @@ index ba9a9ae..658905f 100644
      <div class="dino-header text-center">
          <h1>{{ dino.name }} the {{ dino.type }}</h1>
 diff --git a/gulpfile.js b/gulpfile.js
-index a75959d..3e9c06a 100644
+index a75959d..c9fed1c 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -7,16 +7,28 @@ var config = {
@@ -50,7 +50,7 @@ index a75959d..3e9c06a 100644
  
 -gulp.task('sass', function() {
 -    gulp.src(config.assetsDir+'/'+config.sassPattern)
-+app.sass = function(paths, outputFilename) {
++app.addStyle = function(paths, outputFilename) {
 +    gulp.src(paths)
          .pipe(plugins.plumber())
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
@@ -63,12 +63,12 @@ index a75959d..3e9c06a 100644
 +};
 +
 +gulp.task('sass', function() {
-+    app.sass([
++    app.addStyle([
 +        config.assetsDir+'/sass/layout.scss',
 +        config.assetsDir+'/sass/styles.scss'
 +    ], 'main.css');
 +
-+    app.sass([
++    app.addStyle([
 +        config.assetsDir+'/sass/dinosaur.scss'
 +    ], 'dinosaur.css');
  });
