@@ -1,0 +1,47 @@
+$font-font: 'Shadows Into Light', cursive;
+
+/**Header**/
+.journey-font {
+    font-family: $font-font;
+}
+
+.dino-header {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+/**Dino Images**/
+.dino-img {
+    margin-top: 25px;
+    height: 300px;
+    width: 300px;
+}
+
+.dino-name {
+    color: #000;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.dino-img-show {
+    margin-bottom: 50px;
+}
+
+/**Dino Show Page**/
+.btn-margin {
+    margin-bottom: 50px;
+    max-width: 434px;
+}
+
+/**Tweets in Footer**/
+.tweets {
+    background: #4099FF;
+    width: 200px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+    p {
+        color: #fff;
+        padding-top: 5px;
+    }
+}
