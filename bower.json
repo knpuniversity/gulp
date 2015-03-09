@@ -1,0 +1,19 @@
+{
+  "name": "knpu-gulp",
+  "version": "0.0.0",
+  "authors": [
+    "Ryan Weaver <ryan@knpuniversity.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}
