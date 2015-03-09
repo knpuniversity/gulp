@@ -7,6 +7,8 @@
         <title>{% block title %}Journey to the Center of Symfony!{% endblock %}</title>
         
         {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.css') }}"/>
+
             <!-- Google Fonts -->
             <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
         {% endblock %}
@@ -28,7 +30,7 @@
         <div class="navbar-inverse navbar-static-bottom" role="navigation">
             <div class="container">
                 <div class="navbar-text">
-                    <p>Journey to the Center of Symfony with your guide KnpUniversity</p>
+                    <p>Gulp for Symfony! With your guide KnpUniversity</p>
                 </div>
                 <div class="navbar-text navbar-right">
                     <p>Dino image credit to <a href="http://dinosaurs.about.com/od/typesofdinosaurs/tp/dinosaurgroups.htm" class="navbar-link">about.com</a></p>
