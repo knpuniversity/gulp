@@ -1,0 +1,21 @@
+diff --git a/app/Resources/assets/sass/layout.scss b/app/Resources/assets/sass/layout.scss
+new file mode 100644
+index 0000000..d948648
+--- /dev/null
++++ b/app/Resources/assets/sass/layout.scss
+@@ -0,0 +1,3 @@
++body {
++    background-color: #006400;
++}
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index ad96cbf..c7b3b94 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -10,6 +10,7 @@
+             <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.css') }}"/>
+ 
+             <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
++            <link rel="stylesheet" href="{{ asset('css/layout.css') }}"/>
+ 
+             <!-- Google Fonts -->
+             <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>

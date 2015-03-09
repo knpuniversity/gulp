@@ -39,7 +39,17 @@
             "id": "watch-using-a-config-variable",
             "name": "Watch: Using a config variable",
             "description": null
+        },
+        {
+            "id": "watch-running-from-default",
+            "name": "Watch: Running from default",
+            "description": null
+        },
+        {
+            "id": "compile-adding-a-second-file",
+            "name": "Compile: Adding a second file",
+            "description": null
         }
     ],
-    "sha": "2d655ded1cfdb406608044322dc09f609ad7fc7a"
+    "sha": "efb4f0e852681a64e57b49db8d6ef259c72f2a8f"
 }
