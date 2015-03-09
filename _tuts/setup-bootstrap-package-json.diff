@@ -1,0 +1,22 @@
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000..ba78f03
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,16 @@
++{
++  "name": "gulp-knpu",
++  "version": "0.0.0",
++  "description": "",
++  "main": "index.js",
++  "dependencies": {
++    "gulp": "^3.8.11",
++    "gulp-sass": "^1.3.3"
++  },
++  "devDependencies": {},
++  "scripts": {
++    "test": "echo \"Error: no test specified\" && exit 1"
++  },
++  "author": "",
++  "license": "ISC"
++}

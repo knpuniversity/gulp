@@ -6,6 +6,11 @@
             "description": null
         },
         {
+            "id": "setup-bootstrap-package-json",
+            "name": "Setup: Bootstrap package.json",
+            "description": null
+        },
+        {
             "id": "setup-creating-gulpfile-js",
             "name": "Setup: Creating gulpfile.js",
             "description": null
@@ -16,5 +21,5 @@
             "description": null
         }
     ],
-    "sha": "f06dd75999b937d224b0f140472b5cc0da05dbb1"
+    "sha": "c757425bc7cf668f12cb8f4783dd674ddfd6a9c5"
 }
