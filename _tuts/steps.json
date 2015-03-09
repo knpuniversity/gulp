@@ -109,7 +109,12 @@
             "id": "javascript-uglify",
             "name": "JavaScript: Uglify",
             "description": null
+        },
+        {
+            "id": "javascript-creating-standalone-function",
+            "name": "JavaScript: Creating standalone function",
+            "description": null
         }
     ],
-    "sha": "cde53d73e0e885e9960b5377a89c888943c9a431"
+    "sha": "3f1d738d89ba9dc3fb333208e3275dfc6e4535ef"
 }
