@@ -1,0 +1,23 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 8972f9f..5d37137 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -21,7 +21,7 @@ app.sass = function(paths, outputFilename) {
+         .pipe(gulp.dest('web/css'));
+ };
+ 
+-gulp.task('sass', function() {
++gulp.task('styles', function() {
+     app.sass([
+         config.bowerDir+'/bootstrap/dist/css/bootstrap.css',
+         config.assetsDir+'/sass/layout.scss',
+@@ -34,7 +34,7 @@ gulp.task('sass', function() {
+ });
+ 
+ gulp.task('watch', function() {
+-    gulp.watch(config.assetsDir+'/'+config.sassPattern, ['sass'])
++    gulp.watch(config.assetsDir+'/'+config.sassPattern, ['styles'])
+ });
+ 
+-gulp.task('default', ['sass', 'watch']);
++gulp.task('default', ['styles', 'watch']);

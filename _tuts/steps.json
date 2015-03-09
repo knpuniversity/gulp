@@ -79,7 +79,27 @@
             "id": "plugins-using-gulp-load-plugins",
             "name": "Plugins: Using gulp-load-plugins",
             "description": null
+        },
+        {
+            "id": "plumber-avoiding-watch-failures",
+            "name": "Plumber: Avoiding watch failures",
+            "description": null
+        },
+        {
+            "id": "multiple-css-compiling-2-files",
+            "name": "Multiple CSS: Compiling 2 files",
+            "description": null
+        },
+        {
+            "id": "bower-bower-components-into-vendor",
+            "name": "Bower: bower_components into vendor",
+            "description": null
+        },
+        {
+            "id": "styles-renaming-sass-task-to-styles",
+            "name": "Styles: Renaming sass task to styles",
+            "description": null
         }
     ],
-    "sha": "85c008308271bdfffbd5f774540baafd41c823f1"
+    "sha": "dead5fc5652e108356c737b8edbdfa1bcce41ab0"
 }
