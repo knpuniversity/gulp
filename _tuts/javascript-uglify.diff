@@ -1,5 +1,5 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index b719f1e..bfbf28f 100644
+index 9590573..c6079ca 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -16,7 +16,7 @@ app.addStyle = function(paths, outputFilename) {
@@ -11,14 +11,14 @@ index b719f1e..bfbf28f 100644
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
          .pipe(gulp.dest('web/css'));
  };
-@@ -40,6 +40,7 @@ gulp.task('scripts', function() {
-     ])
+@@ -41,6 +41,7 @@ gulp.task('scripts', function() {
          .pipe(plugins.plumber())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
          .pipe(plugins.concat('site.js'))
 +        .pipe(config.production ? plugins.uglify() : plugins.util.noop())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
          .pipe(gulp.dest('web/js'));
  });
- 
 diff --git a/package.json b/package.json
 index 8b7e1db..774a69c 100644
 --- a/package.json

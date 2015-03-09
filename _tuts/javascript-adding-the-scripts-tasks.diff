@@ -10,11 +10,12 @@ index 6003041..cfc40ec 100644
 +
 diff --git a/app/Resources/assets/js/main.js b/app/Resources/assets/js/main.js
 new file mode 100644
-index 0000000..d37f62e
+index 0000000..98ca373
 --- /dev/null
 +++ b/app/Resources/assets/js/main.js
-@@ -0,0 +1,3 @@
+@@ -0,0 +1,4 @@
 +$(document).ready(function() {
++    console.log('It\'s a Unix system, I know this');
 +    $('.navbar-static-bottom').prepend('<span class="navbar-text">Life finds a way</span>');
 +});
 diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
@@ -32,10 +33,10 @@ index 88e7e01..bbbf2fa 100644
      </body>
  </html>
 diff --git a/gulpfile.js b/gulpfile.js
-index b4e595d..b719f1e 100644
+index b4e595d..9590573 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -33,8 +33,19 @@ gulp.task('styles', function() {
+@@ -33,8 +33,21 @@ gulp.task('styles', function() {
      ], 'dinosaur.css');
  });
  
@@ -45,7 +46,9 @@ index b4e595d..b719f1e 100644
 +        config.assetsDir+'/js/main.js'
 +    ])
 +        .pipe(plugins.plumber())
++        .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
 +        .pipe(plugins.concat('site.js'))
++        .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
 +        .pipe(gulp.dest('web/js'));
 +});
 +
