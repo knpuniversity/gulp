@@ -1,0 +1,34 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 0b89326..73ffbf8 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -3,12 +3,15 @@ var sass = require('gulp-sass');
+ var sourcemaps = require('gulp-sourcemaps');
+ var concat = require('gulp-concat');
+ var minifyCSS = require('gulp-minify-css');
++var util = require('gulp-util');
+ 
+ var config = {
+     assetsDir: 'app/Resources/assets',
+     sassPattern: 'sass/**/*.scss'
+ };
+ 
++console.log(util.env.production);
++
+ gulp.task('sass', function() {
+     gulp.src(config.assetsDir+'/'+config.sassPattern)
+         .pipe(sourcemaps.init())
+diff --git a/package.json b/package.json
+index d5b03b2..43dc6d3 100644
+--- a/package.json
++++ b/package.json
+@@ -12,7 +12,8 @@
+     "gulp-concat": "^2.5.2",
+     "gulp-minify-css": "^0.5.1",
+     "gulp-sass": "^1.3.3",
+-    "gulp-sourcemaps": "^1.5.0"
++    "gulp-sourcemaps": "^1.5.0",
++    "gulp-util": "^3.0.4"
+   },
+   "scripts": {
+     "test": "echo \"Error: no test specified\" && exit 1"

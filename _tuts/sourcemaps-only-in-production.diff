@@ -1,0 +1,42 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 927a8d4..3469a6b 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -4,20 +4,22 @@ var sourcemaps = require('gulp-sourcemaps');
+ var concat = require('gulp-concat');
+ var minifyCSS = require('gulp-minify-css');
+ var util = require('gulp-util');
++var gulpif = require('gulp-if');
+ 
+ var config = {
+     assetsDir: 'app/Resources/assets',
+     sassPattern: 'sass/**/*.scss',
+-    production: !!util.env.production
++    production: !!util.env.production,
++    sourceMaps: !util.env.production
+ };
+ 
+ gulp.task('sass', function() {
+     gulp.src(config.assetsDir+'/'+config.sassPattern)
+-        .pipe(sourcemaps.init())
++        .pipe(gulpif(config.sourceMaps, sourcemaps.init()))
+         .pipe(sass())
+         .pipe(concat('main.css'))
+         .pipe(config.production ? minifyCSS() : util.noop())
+-        .pipe(sourcemaps.write('.'))
++        .pipe(gulpif(config.sourceMaps, sourcemaps.write('.')))
+         .pipe(gulp.dest('web/css'));
+ });
+ 
+diff --git a/package.json b/package.json
+index 43dc6d3..40a64d6 100644
+--- a/package.json
++++ b/package.json
+@@ -10,6 +10,7 @@
+   "devDependencies": {
+     "gulp": "^3.8.11",
+     "gulp-concat": "^2.5.2",
++    "gulp-if": "^1.2.5",
+     "gulp-minify-css": "^0.5.1",
+     "gulp-sass": "^1.3.3",
+     "gulp-sourcemaps": "^1.5.0",

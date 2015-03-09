@@ -49,7 +49,37 @@
             "id": "compile-adding-a-second-file",
             "name": "Compile: Adding a second file",
             "description": null
+        },
+        {
+            "id": "concat-adding-gulp-concat",
+            "name": "Concat: Adding gulp-concat",
+            "description": null
+        },
+        {
+            "id": "minifycss-adding-gulp-minify-css",
+            "name": "MinifyCSS: Adding gulp-minify-css",
+            "description": null
+        },
+        {
+            "id": "minifycss-production-environment",
+            "name": "MinifyCSS: production environment",
+            "description": null
+        },
+        {
+            "id": "minifycss-only-minify-with-production",
+            "name": "MinifyCSS: Only minify with --production",
+            "description": null
+        },
+        {
+            "id": "sourcemaps-only-in-production",
+            "name": "SourceMaps: Only in production",
+            "description": null
+        },
+        {
+            "id": "plugins-using-gulp-load-plugins",
+            "name": "Plugins: Using gulp-load-plugins",
+            "description": null
         }
     ],
-    "sha": "efb4f0e852681a64e57b49db8d6ef259c72f2a8f"
+    "sha": "85c008308271bdfffbd5f774540baafd41c823f1"
 }
