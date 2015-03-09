@@ -1,3 +1,16 @@
+diff --git a/app/Resources/assets/sass/styles.scss b/app/Resources/assets/sass/styles.scss
+index 3dea95d..a6481c7 100644
+--- a/app/Resources/assets/sass/styles.scss
++++ b/app/Resources/assets/sass/styles.scss
+@@ -18,7 +18,7 @@ $font-font: 'Shadows Into Light', cursive;
+ }
+ 
+ .dino-name {
+-    color: #ff0000;
++    color: #000;
+     font-size: 1.5em;
+     text-align: center;
+ }
 diff --git a/gulpfile.js b/gulpfile.js
 index f3ba01c..a4e57f8 100644
 --- a/gulpfile.js
