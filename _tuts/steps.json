@@ -114,7 +114,12 @@
             "id": "javascript-creating-standalone-function",
             "name": "JavaScript: Creating standalone function",
             "description": null
+        },
+        {
+            "id": "fontawesome-publishing-fonts",
+            "name": "FontAwesome: Publishing fonts",
+            "description": null
         }
     ],
-    "sha": "3f1d738d89ba9dc3fb333208e3275dfc6e4535ef"
+    "sha": "552c01cad26fd3456f03562f143d94efde5b10f5"
 }

@@ -1,0 +1,74 @@
+diff --git a/.gitignore b/.gitignore
+index cfc40ec..b3b1145 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -13,4 +13,5 @@
+ /node_modules
+ /web/css
+ /web/js
++/web/fonts
+ 
+diff --git a/app/Resources/views/dinosaurs/show.html.twig b/app/Resources/views/dinosaurs/show.html.twig
+index 658905f..63eb8b1 100644
+--- a/app/Resources/views/dinosaurs/show.html.twig
++++ b/app/Resources/views/dinosaurs/show.html.twig
+@@ -8,7 +8,7 @@
+ 
+ {% block body %}
+     <div class="dino-header text-center">
+-        <h1>{{ dino.name }} the {{ dino.type }}</h1>
++        <h1>{{ dino.name }} the {{ dino.type }} <i class="fa fa-heart"></i></h1>
+     </div>
+     <div class="container">
+         <div class="row">
+diff --git a/bower.json b/bower.json
+index 47e448f..3e15044 100644
+--- a/bower.json
++++ b/bower.json
+@@ -14,6 +14,7 @@
+     "tests"
+   ],
+   "dependencies": {
+-    "bootstrap": "~3.3.2"
++    "bootstrap": "~3.3.2",
++    "font-awesome": "~4.3.0"
+   }
+ }
+diff --git a/gulpfile.js b/gulpfile.js
+index 4c5f0ea..c078fc7 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -31,9 +31,15 @@ app.addScript = function(paths, outputFilename) {
+         .pipe(gulp.dest('web/js'));
+ };
+ 
++app.copy = function(srcFiles, outputDir) {
++    gulp.src(srcFiles)
++        .pipe(gulp.dest(outputDir));
++};
++
+ gulp.task('styles', function() {
+     app.addStyle([
+         config.bowerDir+'/bootstrap/dist/css/bootstrap.css',
++        config.bowerDir+'/font-awesome/css/font-awesome.css',
+         config.assetsDir+'/sass/layout.scss',
+         config.assetsDir+'/sass/styles.scss'
+     ], 'main.css');
+@@ -50,9 +56,16 @@ gulp.task('scripts', function() {
+     ], 'site.js');
+ });
+ 
++gulp.task('fonts', function() {
++    app.copy(
++        config.bowerDir+'/font-awesome/fonts/*',
++        'web/fonts'
++    );
++});
++
+ gulp.task('watch', function() {
+     gulp.watch(config.assetsDir+'/'+config.sassPattern, ['styles']);
+     gulp.watch(config.assetsDir+'/js/**/*.js', ['scripts']);
+ });
+ 
+-gulp.task('default', ['styles', 'scripts', 'watch']);
++gulp.task('default', ['styles', 'scripts', 'fonts', 'watch']);
