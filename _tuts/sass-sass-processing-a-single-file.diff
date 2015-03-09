@@ -1,0 +1,37 @@
+diff --git a/.gitignore b/.gitignore
+index a6d7832..5def2aa 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -12,4 +12,5 @@
+ /composer.phar
+ /web/vendor
+ /node_modules
++/web/css
+ 
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index 920d334..ad96cbf 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -9,6 +9,8 @@
+         {% block stylesheets %}
+             <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.css') }}"/>
+ 
++            <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
++
+             <!-- Google Fonts -->
+             <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+         {% endblock %}
+diff --git a/gulpfile.js b/gulpfile.js
+index 6e354fd..e69109d 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -1,5 +1,8 @@
+ var gulp = require('gulp');
++var sass = require('gulp-sass');
+ 
+ gulp.task('default', function() {
+-    console.log('GULP THIS!');
++    gulp.src('app/Resources/assets/sass/**/*.scss')
++        .pipe(sass())
++        .pipe(gulp.dest('web/css'));
+ });

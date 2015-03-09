@@ -1,0 +1,21 @@
+diff --git a/.gitignore b/.gitignore
+index 464022d..a6d7832 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -11,4 +11,5 @@
+ /bin/
+ /composer.phar
+ /web/vendor
++/node_modules
+ 
+diff --git a/gulpfile.js b/gulpfile.js
+new file mode 100644
+index 0000000..6e354fd
+--- /dev/null
++++ b/gulpfile.js
+@@ -0,0 +1,5 @@
++var gulp = require('gulp');
++
++gulp.task('default', function() {
++    console.log('GULP THIS!');
++});

@@ -1,0 +1,20 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "setup-creating-gulpfile-js",
+            "name": "Setup: Creating gulpfile.js",
+            "description": null
+        },
+        {
+            "id": "sass-sass-processing-a-single-file",
+            "name": "Sass: Sass-processing a single file",
+            "description": null
+        }
+    ],
+    "sha": "f06dd75999b937d224b0f140472b5cc0da05dbb1"
+}
