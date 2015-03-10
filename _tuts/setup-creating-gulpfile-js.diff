@@ -20,12 +20,12 @@ index 0000000..6e354fd
 +    console.log('GULP THIS!');
 +});
 diff --git a/package.json b/package.json
-index ba78f03..c15d9a9 100644
+index 2167895..1d3db24 100644
 --- a/package.json
 +++ b/package.json
-@@ -7,7 +7,9 @@
-     "gulp": "^3.8.11",
-     "gulp-sass": "^1.3.3"
+@@ -5,7 +5,9 @@
+   "main": "index.js",
+   "dependencies": {
    },
 -  "devDependencies": {},
 +  "devDependencies": {

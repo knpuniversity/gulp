@@ -15,10 +15,10 @@ index e69109d..b5357ed 100644
          .pipe(gulp.dest('web/css'));
  });
 diff --git a/package.json b/package.json
-index 49bd559..64bb1b0 100644
+index b0f7f35..141c8ec 100644
 --- a/package.json
 +++ b/package.json
-@@ -9,7 +9,8 @@
+@@ -7,7 +7,8 @@
    },
    "devDependencies": {
      "gulp": "^3.8.11",

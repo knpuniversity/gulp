@@ -29,10 +29,10 @@ index 927a8d4..3469a6b 100644
  });
  
 diff --git a/package.json b/package.json
-index 43dc6d3..40a64d6 100644
+index 07c86d4..5dc27ef 100644
 --- a/package.json
 +++ b/package.json
-@@ -10,6 +10,7 @@
+@@ -8,6 +8,7 @@
    "devDependencies": {
      "gulp": "^3.8.11",
      "gulp-concat": "^2.5.2",

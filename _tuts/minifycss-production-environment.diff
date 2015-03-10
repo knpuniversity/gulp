@@ -19,10 +19,10 @@ index 0b89326..73ffbf8 100644
      gulp.src(config.assetsDir+'/'+config.sassPattern)
          .pipe(sourcemaps.init())
 diff --git a/package.json b/package.json
-index d5b03b2..43dc6d3 100644
+index 1cb1d91..07c86d4 100644
 --- a/package.json
 +++ b/package.json
-@@ -12,7 +12,8 @@
+@@ -10,7 +10,8 @@
      "gulp-concat": "^2.5.2",
      "gulp-minify-css": "^0.5.1",
      "gulp-sass": "^1.3.3",

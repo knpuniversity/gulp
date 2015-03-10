@@ -20,10 +20,10 @@ index 9590573..c6079ca 100644
          .pipe(gulp.dest('web/js'));
  });
 diff --git a/package.json b/package.json
-index 8b7e1db..774a69c 100644
+index 0fad818..988712b 100644
 --- a/package.json
 +++ b/package.json
-@@ -16,6 +16,7 @@
+@@ -14,6 +14,7 @@
      "gulp-plumber": "^1.0.0",
      "gulp-sass": "^1.3.3",
      "gulp-sourcemaps": "^1.5.0",

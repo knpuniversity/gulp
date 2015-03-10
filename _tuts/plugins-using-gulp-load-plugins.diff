@@ -37,10 +37,10 @@ index 3469a6b..595f172 100644
  });
  
 diff --git a/package.json b/package.json
-index 40a64d6..2783d20 100644
+index 5dc27ef..1eb49ee 100644
 --- a/package.json
 +++ b/package.json
-@@ -11,6 +11,7 @@
+@@ -9,6 +9,7 @@
      "gulp": "^3.8.11",
      "gulp-concat": "^2.5.2",
      "gulp-if": "^1.2.5",
