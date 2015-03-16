@@ -4,7 +4,7 @@ This *all* looks fun, until you realize that every time you change your Sass
 file, you have to run Gulp again. That's not going to work - Gulp needs to
 run automagically when a file changes.
 
-Well, there's a magic to handle this called `watch()`, and for once, it comes
+Well, there's magic to handle this called `watch()`, and for once, it comes
 native with Gulp itself. 
 
 ## Creating a Second Task
@@ -42,7 +42,7 @@ to re-run the `sass` task. So put that as the second argument:
 Isn't that nice? Find your terminal and try out `gulp watch`. It runs, but
 then hangs and waits. Go to the browser and refresh. Things look totally
 normal. Now, go into `styles.scss`. Channel your inner-designer. Let's change
-the dinosaur names to be a magestic vermillion.
+the dinosaur names to be a majestic vermillion.
 
 Back to the browser! Refresh! That's some nice vermillion. In the background,
 evil self-aware robots, I mean, the `watch` function, was doing our job for

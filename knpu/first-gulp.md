@@ -24,7 +24,7 @@ The problem with Elixir is that, one, it's meant to only work with Laravel.
 And two, it's a little too magic for my taste. So in this tutorial, we're
 going to get all the sweetness of Elixir, but build it so that you understand
 what's going on. Then, you'll be able to bend and make it do whatever you
-want. Like, make you a some coffee.
+want. Like, make you some coffee.
 
 ## Installing the Gulp Command
 
@@ -55,12 +55,12 @@ And there's the shiny new file I promised. Right now, it's boring:
 
 ## Installing Gulp into your Project
 
-But not we can install Node packages into our project. The first, is `gulp`!
+But now we can install Node packages into our project. The first, is `gulp`!
 So type, `npm install gulp --save-dev`. Wait, didn't we already install this?
 Well, the original command - with the `-g` gave us the global `gulp` executable.
-This actually puts it *inside* our project so other libraries can use it.
-Don't forget the `--save-dev` part. That says, "download this into my project
-AND add an entry into `package.json` for it."
+This time we're actually installing gulp into our project so other libraries
+can use it. Don't forget the `--save-dev` part. That says, "download this
+into my project AND add an entry into `package.json` for it."
 
 Great! Flip back to your editor. The `package.json` has a new `devDependencies`
 section *and* we have a new `node_modules` directory with `gulp` in it:

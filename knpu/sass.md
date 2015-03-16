@@ -1,7 +1,7 @@
 # Sass to CSS
 
-These dinosaurs are our test project! This is a Symfony project, but everything
-we'll do translates to any PHP project.
+Dinosaurs! Actually, these are our test project, and it's written in Symfony.
+But everything we'll do translates to any PHP project.
 
 But this look bad - it's messed up. And that's totally my fault. Open up
 the base layout - `app/Resources/view/base.html.twig`. I'm including Twitter

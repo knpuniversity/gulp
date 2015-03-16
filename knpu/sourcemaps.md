@@ -9,7 +9,7 @@ line 2. Dang it! The browser is looking at the final, processed file. And
 that means that debugging CSS is going to be an absolute nightmare.
 
 What I *really* want is the debugger to be smart enough to tell me that this
-font is coming from our `styles.scss` file at line 4. Such myserious magic
+font is coming from our `styles.scss` file at line 4. Such mysterious magic
 goodness exists, and it's called a sourcemap.
 
 ## Using gulp-sourcemaps
@@ -35,7 +35,7 @@ are done, pipe it again through `sourcemaps.write('.')`:
 
 [[[ code('19cdef1c93') ]]]
 
-Time to try things! At the terminal, run `gulp`... and hope for the best!
+Ok, let's try it! At the terminal, run `gulp`... and hope for the best!
 
 ```bash
 gulp
@@ -46,7 +46,7 @@ file: `styles.css.map`! That's what the `.` did - it told Gulp to put the
 map file *right* in the same directory as `styles.css`, and the browser knows
 to look there.
 
-Time to efresh the page again. Inspect the element again. *Now* it says the
+Time to refresh the page again. Inspect the element again. *Now* it says the
 font comes from `styles.scss` on line 4. This is a *huge* deal guys. We can
 do whatever weird processing we want and not worry about killing our debugging.
 
@@ -54,5 +54,5 @@ do whatever weird processing we want and not worry about killing our debugging.
 
 Of course, this all works because `gulp-sourcemaps` and `gulp-sass` work
 together like super friends. If you look at the `sourcemaps` docs, they have
-a link on their wiki to a list of *all* superfriend gulp plugins that play
+a link on their wiki to a list of *all* super-friend gulp plugins that play
 nice with it. We'll use a couple of these later. 
