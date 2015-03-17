@@ -1,7 +1,7 @@
 # Minify only in Production
 
 A lot of times, I'll *only* minify my CSS when I'm deploying. Then locally,
-you keep the whitespace for debugging. This matters a lot less now that we
+keep the whitespace for debugging. This matters a lot less now that we
 have `sourcemaps`, but I still want a way to control the minification.
 
 Here's the goal: when I run `gulp`, I want it to *not* minify. But if I run
@@ -10,9 +10,8 @@ Here's the goal: when I run `gulp`, I want it to *not* minify. But if I run
 ## Installing gulp-util
 
 To parse out that flag, the [gulp-util](https://github.com/gulpjs/gulp-util)
-plugin comes to the rescue. For some reason, it's missing from the Gulp plugins
-page, so just Google for it. This has a bunch of interesting functions in
-it. We'll use just a couple of them.
+is the perfect tool. For some reason, it's missing from the Gulp plugins
+page, so just Google for it.
 
 First, get it installed! Of course, that's:
 
@@ -27,7 +26,7 @@ variable to just be `util`:
 
 ## Reading the --production Flag
 
-First, this will let us figure out if the `--production` flag is passed.
+We can use `util` to figure out if the `--production` flag is passed.
 Run `console.log(util.env.production)`:
 
 [[[ code('759a1d69aa') ]]]
@@ -68,7 +67,7 @@ called `util.noop`. Woops, I should actually type `util`:
 
 [[[ code('17750112b5') ]]]
 
-This filter does *absolutely nothing*. Isn't that brilliant? So if we're
+This filter does *absolutely nothing*. Woo! Isn't that brilliant? So if we're
 not in production, the `pipe()` still happens, but no changes are made. 
 
 Moment of truth. First, just run `gulp`:

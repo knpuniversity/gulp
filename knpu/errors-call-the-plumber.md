@@ -1,18 +1,20 @@
 # Errors: Call the Plumber
 
-With `gulp` running, we know we can update files, and it'll re-compile them.
+With `gulp` running, when we update a file, the gulp-bots recompile stuff
+for us. We're like a factory for CSS.
+
 But there's a problem, a *big* problem if you're like me and mess up a lot.
 Add a syntax error in `layout.scss`.
 
 Now check out `gulp`. It exploded! It's not even running anymore. So even
-if I fix the error, `gulp` is dead. That means I'll go refresh the browser,
-then spend 30 minutes trying to figure out why my CSS changes don't seem
-to be doing anything before I realize gulp has been dead the entire time.
-This is how angry Twitter rants happen!
+if I fix the error, `gulp` is dead. I'll probably refresh my browser for
+30 minutes before I realize that gulp hasn't been running this entire time.
+And I'll spend the next 5 minutes composing an angry tweet.
 
 Out of the box, Gulp supports error handlers where you say "Hey, instead
-of exploding all crazy, just call this function over here." But I want to
-show you a really nice plugin called `gulp-plumber` instead.
+of exploding all crazy, just call this function over here." But instead,
+I'll show you a really nice plugin called `gulp-plumber` that'll take care
+of this for us.
 
 Go look for [gulp-plumber](https://www.npmjs.com/package/gulp-plumber).
 Copy its handy install statement, and paste that to get it downloading.
@@ -38,5 +40,4 @@ gulp
 
 Let's mess up `layout.scss` again! This time, gulp *does* show us the error,
 it just doesn't die anymore. How nice! When we fix the error, it recompiles.
-That's such a small detail, but if you don't have this, you're not going
-to have a good time with gulp.
+Robots, get back to work!

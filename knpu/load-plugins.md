@@ -1,10 +1,10 @@
 # gulp-load-plugins
 
-Gulp plugins are like little dangerous tool, so you'll want to use a lot
-of them. Of course, that means you'll probably also have a lot of require
-statements at the top. Ok, that's really not a big deal, but if you want
-to remove some of these plugin require statements, you can... but using,
-um, another plugin! Just go with it - you'll see how it works.
+Gulp plugins are like busy little elves, so you'll want to use a lot
+of them. Of course, that means you'll probably also have a ton of these
+awesome-looking require statements on top. Ok, they're really not a big deal,
+but if you want get rid of some of them, you can... by using, um, another
+plugin! Just go with it - you'll see how it works.
 
 This one is called [gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins).
 First thing is first: copy it's perfect installation statement:
@@ -32,11 +32,11 @@ to lower camelcase. Then I'll finish up the rest of them:
 [[[ code('51623da2cd') ]]]
 
 I'll clear out the require lines entirely so we can really enjoy things.
-The burning question now is, did I break anything? Go back and run `gulp`:
+But now the burning question is: did I break anything? Go back and run `gulp`:
 
 ```bash
 gulp
 ```
 
-Hey, not errors! So if this shorter syntax feels cool to you, go for it.
+Hey, no errors! So if this shorter syntax feels cool to you, go for it.
 If you hate the magic, no big deal - keep those requires.
