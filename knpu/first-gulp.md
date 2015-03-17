@@ -39,7 +39,7 @@ for a test-drive by typing `gulp -v`:
 
 ```bash
 gulp -v
-````
+```
 
 ## Bootstrapping package.json
 
