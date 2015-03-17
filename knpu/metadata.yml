@@ -26,7 +26,7 @@ hasVideoDownload: 0
 chapters:
     first-gulp:
         is_free:    true
-        video_key:  ~
+        video_key:  az76ruggwv
     sass:
         is_free:    true
         is_finished: false
