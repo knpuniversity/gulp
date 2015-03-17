@@ -25,7 +25,7 @@ all the require statements except for this one and the one for gulp itself.
 Below, just prefix everything with `plugins.`. So, we'll have `plugins.util`.
 Actually, the property name is the second part of the plugin's name. So,
 `gulp-util` is added to the `util` property. `gulpif` becomes `plugins.if`,
-`plugin.sourcemaps` - I'll copy that because I'm getting lazy - then `plugins.sass`,
+`plugins.sourcemaps` - I'll copy that because I'm getting lazy - then `plugins.sass`,
 `plugins.concat` and `plugins.minifyCss`, because `minify-css` is changed
 to lower camelcase. Then I'll finish up the rest of them:
 
