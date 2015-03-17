@@ -24,8 +24,36 @@ illustration: gulp.png
 hasVideoDownload: 0
 
 chapters:
-    gulp-install:
+    first-gulp:
         is_free:    true
-        video_key:  
-    query-builder:
-        is_finished:  false
+        video_key:  ~
+    sass:
+        is_free:    true
+        is_finished: false
+    sourcemaps:
+        is_free:    true
+        is_finished: false
+    watch:
+        is_finished: false
+    concat:
+        is_finished: false
+    minify:
+        is_finished: false
+    minify-only-production:
+        is_finished: false
+    sourcemaps-only-dev:
+        is_finished: false
+    load-plugins:
+        is_finished: false
+    error-handling-plumber:
+        is_finished: false
+    page-specific-css:
+        is_finished: false
+    bower-into-vendor:
+        is_finished: false
+    javascript:
+        is_finished: false
+    publishing-fonts:
+        is_finished: false
+    version-cache-busting:
+        is_finished: false
