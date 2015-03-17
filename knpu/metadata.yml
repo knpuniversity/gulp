@@ -23,4 +23,9 @@ summary: |
 illustration: gulp.png
 hasVideoDownload: 0
 
-chapters: []
+chapters:
+    gulp-install:
+        is_free:    true
+        video_key:  
+    query-builder:
+        is_finished:  false
