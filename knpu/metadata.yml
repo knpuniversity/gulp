@@ -45,7 +45,7 @@ chapters:
         is_finished: false
     load-plugins:
         is_finished: false
-    error-handling-plumber:
+    errors-call-the-plumber:
         is_finished: false
     page-specific-css:
         is_finished: false
