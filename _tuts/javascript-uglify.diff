@@ -1,16 +1,7 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index 9590573..c6079ca 100644
+index 11f9f50..c6079ca 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -16,7 +16,7 @@ app.addStyle = function(paths, outputFilename) {
-         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
-         .pipe(plugins.sass())
-         .pipe(plugins.concat(outputFilename))
--        .pipe(config.production ? plugins.minifyCSS() : plugins.util.noop())
-+        .pipe(config.production ? plugins.minifyCss() : plugins.util.noop())
-         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
-         .pipe(gulp.dest('web/css'));
- };
 @@ -41,6 +41,7 @@ gulp.task('scripts', function() {
          .pipe(plugins.plumber())
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))

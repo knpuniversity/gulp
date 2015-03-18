@@ -39,7 +39,7 @@ index ba9a9ae..658905f 100644
      <div class="dino-header text-center">
          <h1>{{ dino.name }} the {{ dino.type }}</h1>
 diff --git a/gulpfile.js b/gulpfile.js
-index a75959d..c9fed1c 100644
+index f176518..fb36942 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -7,16 +7,28 @@ var config = {
@@ -57,7 +57,7 @@ index a75959d..c9fed1c 100644
          .pipe(plugins.sass())
 -        .pipe(plugins.concat('main.css'))
 +        .pipe(plugins.concat(outputFilename))
-         .pipe(config.production ? plugins.minifyCSS() : plugins.util.noop())
+         .pipe(config.production ? plugins.minifyCss() : plugins.util.noop())
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
          .pipe(gulp.dest('web/css'));
 +};

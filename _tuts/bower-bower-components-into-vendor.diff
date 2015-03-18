@@ -33,7 +33,7 @@ index 272eba4..88e7e01 100644
  
              <!-- Google Fonts -->
 diff --git a/gulpfile.js b/gulpfile.js
-index c9fed1c..4478c6f 100644
+index fb36942..53ca57e 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -5,7 +5,8 @@ var config = {
