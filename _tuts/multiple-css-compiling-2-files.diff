@@ -1,12 +1,3 @@
-diff --git a/app/Resources/assets/sass/dinosaur.scss b/app/Resources/assets/sass/dinosaur.scss
-new file mode 100644
-index 0000000..9897e6e
---- /dev/null
-+++ b/app/Resources/assets/sass/dinosaur.scss
-@@ -0,0 +1,3 @@
-+.dino-img-show {
-+    margin-bottom: 50px;
-+}
 diff --git a/app/Resources/assets/sass/styles.scss b/app/Resources/assets/sass/styles.scss
 index a6481c7..aed51b3 100644
 --- a/app/Resources/assets/sass/styles.scss
@@ -39,17 +30,20 @@ index ba9a9ae..658905f 100644
      <div class="dino-header text-center">
          <h1>{{ dino.name }} the {{ dino.type }}</h1>
 diff --git a/gulpfile.js b/gulpfile.js
-index f176518..fb36942 100644
+index 69bdbcf..fb36942 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -7,16 +7,28 @@ var config = {
+@@ -7,19 +7,28 @@ var config = {
      production: !!plugins.util.env.production,
      sourceMaps: !plugins.util.env.production
  };
 +var app = {};
  
 -gulp.task('sass', function() {
--    gulp.src(config.assetsDir+'/'+config.sassPattern)
+-    gulp.src([
+-        config.assetsDir+'/sass/layout.scss',
+-        config.assetsDir+'/sass/styles.scss'
+-    ])
 +app.addStyle = function(paths, outputFilename) {
 +    gulp.src(paths)
          .pipe(plugins.plumber())
