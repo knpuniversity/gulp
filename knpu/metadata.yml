@@ -36,7 +36,7 @@ chapters:
     watch:
         video_key:  p7peh3l8qb
     concat:
-        is_finished: false
+        video_key:  yl2hmqr6c8
     minify:
         is_finished: false
     minify-only-production:
