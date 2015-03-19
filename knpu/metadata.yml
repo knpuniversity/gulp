@@ -34,7 +34,7 @@ chapters:
         is_free:    true
         video_key:  icxv2ura52
     watch:
-        is_finished: false
+        video_key:  p7peh3l8qb
     concat:
         is_finished: false
     minify:
