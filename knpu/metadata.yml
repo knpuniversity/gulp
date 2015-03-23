@@ -38,7 +38,7 @@ chapters:
     concat:
         video_key:  yl2hmqr6c8
     minify:
-        is_finished: false
+        video_key:  162i1zfk9z
     minify-only-production:
         is_finished: false
     sourcemaps-only-dev:
