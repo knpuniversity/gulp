@@ -40,9 +40,9 @@ chapters:
     minify:
         video_key:  162i1zfk9z
     minify-only-production:
-        is_finished: false
+        video_key:  ixe58lmw9t
     sourcemaps-only-dev:
-        is_finished: false
+        video_key:  06w47crcvf
     load-plugins:
         is_finished: false
     errors-call-the-plumber:
