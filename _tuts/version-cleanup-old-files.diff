@@ -1,0 +1,59 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 5306d06..3bf94c1 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -1,12 +1,14 @@
+ var gulp = require('gulp');
+ var plugins = require('gulp-load-plugins')();
++var del = require('del');
+ 
+ var config = {
+     assetsDir: 'app/Resources/assets',
+     sassPattern: 'sass/**/*.scss',
+     production: !!plugins.util.env.production,
+     sourceMaps: !plugins.util.env.production,
+-    bowerDir: 'vendor/bower_components'
++    bowerDir: 'vendor/bower_components',
++    revManifestPath: 'app/Resources/assets/rev-manifest.json'
+ };
+ var app = {};
+ 
+@@ -21,7 +23,7 @@ app.addStyle = function(paths, outputFilename) {
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
+         .pipe(gulp.dest('web'))
+         // write the rev-manifest.json file for gulp-rev
+-        .pipe(plugins.rev.manifest('app/Resources/assets/rev-manifest.json', {
++        .pipe(plugins.rev.manifest(config.revManifestPath, {
+             merge: true
+         }))
+         .pipe(gulp.dest('.'));
+@@ -69,9 +71,16 @@ gulp.task('fonts', function() {
+     );
+ });
+ 
++gulp.task('clean', function() {
++    del.sync(config.revManifestPath);
++    del.sync('web/css/*');
++    del.sync('web/js/*');
++    del.sync('web/fonts/*');
++});
++
+ gulp.task('watch', function() {
+     gulp.watch(config.assetsDir+'/'+config.sassPattern, ['styles']);
+     gulp.watch(config.assetsDir+'/js/**/*.js', ['scripts']);
+ });
+ 
+-gulp.task('default', ['styles', 'scripts', 'fonts', 'watch']);
++gulp.task('default', ['clean', 'styles', 'scripts', 'fonts', 'watch']);
+diff --git a/package.json b/package.json
+index 4b1481d..405bf89 100644
+--- a/package.json
++++ b/package.json
+@@ -6,6 +6,7 @@
+   "dependencies": {
+   },
+   "devDependencies": {
++    "del": "^1.1.1",
+     "gulp": "^3.8.11",
+     "gulp-concat": "^2.5.2",
+     "gulp-if": "^1.2.5",

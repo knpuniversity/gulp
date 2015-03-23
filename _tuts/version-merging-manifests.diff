@@ -1,5 +1,5 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index f2739bb..98fdbe7 100644
+index 4480d3c..5306d06 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -21,7 +21,9 @@ app.addStyle = function(paths, outputFilename) {

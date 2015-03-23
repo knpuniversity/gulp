@@ -11,6 +11,19 @@ index bbbf2fa..9a5a34f 100644
  
              <!-- Google Fonts -->
              <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+diff --git a/app/Resources/views/dinosaurs/show.html.twig b/app/Resources/views/dinosaurs/show.html.twig
+index 63eb8b1..f57976e 100644
+--- a/app/Resources/views/dinosaurs/show.html.twig
++++ b/app/Resources/views/dinosaurs/show.html.twig
+@@ -3,7 +3,7 @@
+ {% block stylesheets %}
+     {{ parent() }}
+ 
+-    <link rel="stylesheet" href="{{ asset('css/dinosaur.css') }}"/>
++    <link rel="stylesheet" href="{{ asset('css/dinosaur.css'|asset_version) }}"/>
+ {% endblock %}
+ 
+ {% block body %}
 diff --git a/src/AppBundle/Twig/AssetVersionExtension.php b/src/AppBundle/Twig/AssetVersionExtension.php
 index 4d323d9..bbf7f5f 100644
 --- a/src/AppBundle/Twig/AssetVersionExtension.php

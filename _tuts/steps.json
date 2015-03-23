@@ -149,7 +149,12 @@
             "id": "version-twig-extension",
             "name": "Version: Twig Extension!",
             "description": null
+        },
+        {
+            "id": "version-cleanup-old-files",
+            "name": "Version: Cleanup old files",
+            "description": null
         }
     ],
-    "sha": "88a8cb80b7726c395822b6882559ac0c67b715ee"
+    "sha": "39a87136988a8b971a3112b90fa35aec18d593ba"
 }
