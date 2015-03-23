@@ -1,0 +1,36 @@
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index 9a5a34f..b70622a 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -41,7 +41,7 @@
+         </div>
+ 
+         {% block javascripts %}
+-            <script src="{{ asset('js/site.js') }}"></script>
++            <script src="{{ asset('js/site.js'|asset_version) }}"></script>
+         {% endblock %}
+     </body>
+ </html>
+diff --git a/gulpfile.js b/gulpfile.js
+index 3bf94c1..29fecee 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -33,10 +33,16 @@ app.addScript = function(paths, outputFilename) {
+     gulp.src(paths)
+         .pipe(plugins.plumber())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
+-        .pipe(plugins.concat(outputFilename))
++        .pipe(plugins.concat('js/'+outputFilename))
+         .pipe(config.production ? plugins.uglify() : plugins.util.noop())
++        .pipe(plugins.rev())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
+-        .pipe(gulp.dest('web/js'));
++        .pipe(gulp.dest('web'))
++        // write the rev-manifest.json file for gulp-rev
++        .pipe(plugins.rev.manifest(config.revManifestPath, {
++            merge: true
++        }))
++        .pipe(gulp.dest('.'));
+ };
+ 
+ app.copy = function(srcFiles, outputDir) {

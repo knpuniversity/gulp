@@ -154,7 +154,12 @@
             "id": "version-cleanup-old-files",
             "name": "Version: Cleanup old files",
             "description": null
+        },
+        {
+            "id": "version-include-javascript",
+            "name": "Version: Include JavaScript",
+            "description": null
         }
     ],
-    "sha": "39a87136988a8b971a3112b90fa35aec18d593ba"
+    "sha": "ae8c31a1a385721448167fa151312883cc04101b"
 }
