@@ -1,0 +1,15 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index f2739bb..98fdbe7 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -21,7 +21,9 @@ app.addStyle = function(paths, outputFilename) {
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
+         .pipe(gulp.dest('web'))
+         // write the rev-manifest.json file for gulp-rev
+-        .pipe(plugins.rev.manifest('app/Resources/assets/rev-manifest.json'))
++        .pipe(plugins.rev.manifest('app/Resources/assets/rev-manifest.json', {
++            merge: true
++        }))
+         .pipe(gulp.dest('.'));
+ };
+ 

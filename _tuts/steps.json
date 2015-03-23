@@ -124,7 +124,32 @@
             "id": "fontawesome-publishing-fonts",
             "name": "FontAwesome: Publishing fonts",
             "description": null
+        },
+        {
+            "id": "version-basic-use-of-gulp-rev",
+            "name": "Version: Basic use of gulp-rev",
+            "description": null
+        },
+        {
+            "id": "version-dumping-the-manfest",
+            "name": "Version: Dumping the manfest",
+            "description": null
+        },
+        {
+            "id": "version-correcting-manifest-directory",
+            "name": "Version: Correcting manifest directory",
+            "description": null
+        },
+        {
+            "id": "version-merging-manifests",
+            "name": "Version: merging manifests",
+            "description": null
+        },
+        {
+            "id": "version-twig-extension",
+            "name": "Version: Twig Extension!",
+            "description": null
         }
     ],
-    "sha": "ed869dc7ba668cf75284f609a8550c8c0ee565f5"
+    "sha": "88a8cb80b7726c395822b6882559ac0c67b715ee"
 }

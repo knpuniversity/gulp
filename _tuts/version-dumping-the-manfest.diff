@@ -1,0 +1,26 @@
+diff --git a/.gitignore b/.gitignore
+index b3b1145..51f7451 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -14,4 +14,4 @@
+ /web/css
+ /web/js
+ /web/fonts
+-
++/app/Resources/assets/rev-manifest.json
+diff --git a/gulpfile.js b/gulpfile.js
+index 670e8b5..7a758d7 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -19,7 +19,10 @@ app.addStyle = function(paths, outputFilename) {
+         .pipe(config.production ? plugins.minifyCss() : plugins.util.noop())
+         .pipe(plugins.rev())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
+-        .pipe(gulp.dest('web/css'));
++        .pipe(gulp.dest('web/css'))
++        // write the rev-manifest.json file for gulp-rev
++        .pipe(plugins.rev.manifest('app/Resources/assets/rev-manifest.json'))
++        .pipe(gulp.dest('.'));
+ };
+ 
+ app.addScript = function(paths, outputFilename) {

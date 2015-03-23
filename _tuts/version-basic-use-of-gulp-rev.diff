@@ -1,0 +1,24 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index c078fc7..670e8b5 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -17,6 +17,7 @@ app.addStyle = function(paths, outputFilename) {
+         .pipe(plugins.sass())
+         .pipe(plugins.concat(outputFilename))
+         .pipe(config.production ? plugins.minifyCss() : plugins.util.noop())
++        .pipe(plugins.rev())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
+         .pipe(gulp.dest('web/css'));
+ };
+diff --git a/package.json b/package.json
+index 988712b..4b1481d 100644
+--- a/package.json
++++ b/package.json
+@@ -12,6 +12,7 @@
+     "gulp-load-plugins": "^0.8.1",
+     "gulp-minify-css": "^0.5.1",
+     "gulp-plumber": "^1.0.0",
++    "gulp-rev": "^3.0.1",
+     "gulp-sass": "^1.3.3",
+     "gulp-sourcemaps": "^1.5.0",
+     "gulp-uglify": "^1.1.0",

@@ -1,0 +1,18 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 7a758d7..f2739bb 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -15,11 +15,11 @@ app.addStyle = function(paths, outputFilename) {
+         .pipe(plugins.plumber())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
+         .pipe(plugins.sass())
+-        .pipe(plugins.concat(outputFilename))
++        .pipe(plugins.concat({path: 'css/'+outputFilename}))
+         .pipe(config.production ? plugins.minifyCss() : plugins.util.noop())
+         .pipe(plugins.rev())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
+-        .pipe(gulp.dest('web/css'))
++        .pipe(gulp.dest('web'))
+         // write the rev-manifest.json file for gulp-rev
+         .pipe(plugins.rev.manifest('app/Resources/assets/rev-manifest.json'))
+         .pipe(gulp.dest('.'));

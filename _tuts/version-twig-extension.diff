@@ -1,0 +1,44 @@
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index bbbf2fa..9a5a34f 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -7,7 +7,7 @@
+         <title>{% block title %}Journey to the Center of Symfony!{% endblock %}</title>
+         
+         {% block stylesheets %}
+-            <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
++            <link rel="stylesheet" href="{{ asset('css/main.css'|asset_version) }}"/>
+ 
+             <!-- Google Fonts -->
+             <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+diff --git a/src/AppBundle/Twig/AssetVersionExtension.php b/src/AppBundle/Twig/AssetVersionExtension.php
+index 4d323d9..bbf7f5f 100644
+--- a/src/AppBundle/Twig/AssetVersionExtension.php
++++ b/src/AppBundle/Twig/AssetVersionExtension.php
+@@ -14,10 +14,25 @@ class AssetVersionExtension extends \Twig_Extension
+     public function getFilters()
+     {
+         return array(
+-
++            new \Twig_SimpleFilter('asset_version', array($this, 'getAssetVersion')),
+         );
+     }
+ 
++    public function getAssetVersion($filename)
++    {
++        $manifestPath = $this->appDir.'/Resources/assets/rev-manifest.json';
++        if (!file_exists($manifestPath)) {
++            throw new \Exception(sprintf('Cannot find manifest file: "%s"', $manifestPath));
++        }
++
++        $paths = json_decode(file_get_contents($manifestPath), true);
++        if (!isset($paths[$filename])) {
++            throw new \Exception(sprintf('There is no file "%s" in the version manifest!', $filename));
++        }
++
++        return $paths[$filename];
++    }
++
+     public function getName()
+     {
+         return 'asset_version';
