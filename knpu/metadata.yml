@@ -44,9 +44,9 @@ chapters:
     sourcemaps-only-dev:
         video_key:  06w47crcvf
     load-plugins:
-        is_finished: false
+        video_key:  c8ndrkv27x
     errors-call-the-plumber:
-        is_finished: false
+        video_key:  agcnfsaxzq
     page-specific-css:
         is_finished: false
     bower-into-vendor:
