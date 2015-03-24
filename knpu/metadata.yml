@@ -57,3 +57,5 @@ chapters:
         is_finished: false
     version-cache-busting:
         is_finished: false
+    javascript-versioning-and-cleanup:
+        is_finished: false
