@@ -2,7 +2,7 @@
 
 RAWR! Um, click on the T-rex. Here, we get personal with Mr Tyranosaur. His
 big image has a class called `dino-img-show` that's not used *anywhere* else
-on this site. But the CSS behind this lives in `styles.scss`, which means
+on this site. But the CSS behind this lives in `styles.scss`. And  means
 we're including it on *every* page.
 
 That's a bummer! I need the flexibility to have *page-specific* CSS files,
@@ -13,21 +13,21 @@ paste that in there:
 
 [[[ code('66c37ff19e') ]]]
 
-The Gulp watch robots are hard at work in the background. *AND*, the watch
-robots are looking for *every* `.scss` file in that directory. That means,
-when I refresh, I still have the `dino-img-show` styling. See, it's adding
-all that margin between the image and the button. We have 3 Sass files, but
-it's all still compiling into one big `main.css`.
+The Gulp watch robots are hard at work in the background. *AND*, they're
+looking for *every* `.scss` file in that directory. That means, when I refresh,
+I still have the `dino-img-show` styling. See, it's adding all that margin
+between the image and the button. We have 3 Sass files, but it's all still
+compiling into one big `main.css`.
 
 Here's the goal: configure Gulp to give us two files: `main.css` made from
 `styles.scss` and `layout.scss` and `dinosaur.css` made from this new one.
-Then, we can include `dinosaur.css` only on this show page. That'll be swell!
+Then, we can include `dinosaur.css` only on this show page. RAWR!
 
 ## Include specific Files in main.css
 
 First, let's make `main.css` only include two of these files. Update `gulp.src()`.
 Instead of a pattern, we can pass it an array. We'll feed it `sass/layout.scss`
-and then `sass.styles.scss`:
+and then `sass/styles.scss`:
 
 [[[ code('192ba615a6') ]]]
 
@@ -42,18 +42,18 @@ included. Ok, good start!
 
 ## Isolating the Styles Pipeline
 
-Now, how can we get Gulp to d *all* of this same logic, but dump out new
-`dinosaur.css` file in this directory?
+Now, how can we get Gulp to do *all* of this same logic, but dump out a new
+`dinosaur.css` file.
 
 Start by creating a new variable called `app`. We'll use this as a place
 to store our own custom functions - including a nice new one called `addStyle`.
 Give this two arguments - the `paths` we want to process and the final `filename`
-to write. Next, copy the guuts of the `sass` task into `addStyle` and make
+to write. Next, copy the guts of the `sass` task into `addStyle` and make
 it dynamic: fill in `paths` on top, and `filename` instead of `main.css`:
 
 [[[ code('035e20c44e') ]]]
 
-Can you guys what's next? In the `sass` task, we'll call `app.addStyle`,
+Can you guys see what's next? In the `sass` task, we'll call `app.addStyle()`,
 keep the two paths, comma, then `main.css`:
 
 [[[ code('a5660481d8') ]]]
@@ -69,7 +69,7 @@ gulp
 
 Yep, still looks ok! Now let's put that margin back!
 
-To do that, we can just call `addStyle()` again. Copy our other `addStyle`
+To do that, we can just call `addStyle()` again. Copy the first `addStyle`
 and make it load only `dinosaur.scss`. Oh, and give it a different output
 name - how about `dinosaur.css`:
 
@@ -81,8 +81,8 @@ Ok! Hit ctrl+c then restart Gulp:
 gulp
 ```
 
-I'm hoping we'll have a new `dinosaur.css`. There it is! And it's got just
-the stuff form its one source file.
+I'm hoping we'll uncover a new `dinosaur.css` when we dig inside the `web/css`
+directory. Yes! And it's got just the stuff form its one source file.
 
 ## Updating the Template
 

@@ -1,7 +1,7 @@
 # Minify and Combine JavaScript
 
-With CSS tackled, let's write some JavaScript! I'll create a new `js` directory
-inside  `app/Resources/assets` and a new file - let's call that `main.js`.
+Now for the most thrilling part: JavaScript. Create a new `js` directory
+inside `app/Resources/assets` and a new file - let's call that `main.js`.
 
 Ok, let's start with a jQuery document ready block and then log a movie quote
 that combines two of my *favorite* things: UNIX and dinosaurs. Thank you
@@ -12,7 +12,7 @@ warning, if you will.
 
 With such a cool JavaScript file, I can't wait to include it on my site.
 But, I can't just go add a `script` tag - `main.js` isn't in a public directory.
-Gulp to the rescue!
+Gulp, halp!
 
 ## scripts Task in Gulp
 
@@ -20,24 +20,24 @@ Create a new task called `scripts`:
 
 [[[ code('d8580c1ff5') ]]]
 
-Inside here, we're going to do almost the exact some stuff we do with our
+Inside here, we're going to do almost the exact same stuff we do with our
 CSS. So let's copy the inside of `addStyle` and paste it in our task. Now
 we need to make a bunch of small adjustments.
 
 First, get rid of a few things, like the `sass` filter and `minifyCss`. We
 *will* minify in a second, but we need to use a different tool.
 
-Second, in `src()`, we need to include two things: `config.assetsDir` then
-`/js/main.js` *and* we need jQuery. That already lives inside the `bower_components`
-directory. So above `main.js` add `config.bowerDir` - that new config is
-coming in handy - `/jquery/dist/jquery.js`.
+Second, in `src()`, start with `config.assetsDir` then `/js/main.js`. We
+also need jQuery. That already lives inside the `bower_components` directory.
+So above `main.js`, add `config.bowerDir` - that new config sure is coming
+in handy - then `/jquery/dist/jquery.js`.
 
-And to finish this off, change the `dest()` to `web/js` and give `concat()`
+And to put the cherry on top, change the `dest()` to `web/js` and give `concat()`
 a filename - how about `site.js`.
 
 [[[ code('291e0aeaaf') ]]]
 
-Perfect. Hey, we're reusing all the stuff we learned earlier!
+Perfect. We're reusing all that good stuff we learned earlier!
 
 Exit out of `gulp` with ctrl+c then just try running `gulp scripts`:
 
@@ -71,10 +71,10 @@ Great, it runs `scripts` and then the watch waits. To test that, go back
 and add a period to `main.js`, save and you can see that `scripts` ran again
 automatically.
 
-After all this, we have a *real* `site.js` file in a public directory! That's
-great because it means we can add a boring `script` tag to our layout. Near
-the bottom, add the script tag. For the path, I'm using the `asset()` function
-from Symfony, but it doesn't really do anything. Say, `js/site.js`:
+After all this, we have a *real* `site.js` file in a public directory! We
+can now use that to add a boring `script` tag to our layout. Near the bottom,
+add the script tag. For the path, I'm using the `asset()` function from
+Symfony, but it doesn't really do anything. Say, `js/site.js`:
 
 [[[ code('a6cd2ad8d4') ]]]
 
@@ -91,19 +91,19 @@ in `web/js`. So, make sure you add this path to your `.gitignore`:
 
 ## Minify with gulp-uglify
 
-Now, `site.js` is *not* currently minified. We want our site to be super
-fast - so let's fix that. For our styles, we used that `minifyCss` plugin.
-For JS, we'll use one called `gulp-uglify`. Grab its perfect install statement,
+One last challenge: `site.js` is *not* minified yet. Dinosaurs hate whitespace,
+so let's fix that. For our styles, we used that `minifyCss` plugin. For JS,
+we'll use one called `gulp-uglify`. Grab its perfect install statement,
 stop gulp, and get that downloading:
 
 ```
 npm install --save-dev gulp-uglify
 ```
 
-We don't need the `require` line though, because `gulp-plugins-require` will
-do that for us. We can go straight to work. Copy the `minifyCss` line so
-that we have the cool `--production` flag behavior. Now, just paste it and
-change to say `plugins.uglify()`:
+We don't need the `require` line though, because `gulp-plugins-require` takes
+care of that for us. We can go straight to work. Copy the `minifyCss` line so
+that we have the cool `--production` flag behavior. Paste it and change things
+say `plugins.uglify()`:
 
 [[[ code('3326152a0e') ]]]
 
@@ -125,11 +125,11 @@ Uglify!
 
 ## Multiple JavaScript Files
 
-Down the road, we'll may want some extra, page-specific JavaScript files.
-We made that possibe with our styles, and we an do the same thing with scripts.
+Oh yea, back to dinosaurs. Eventually, we may want some page-specific
+JavaScript files.
 
-Add a new `app.addScript` function with `paths` and `filename` arguments.
-Now, copy all of the `scripts` task, paste it, and update `src()` with `paths`
+So, add a new `app.addScript` function with `paths` and `filename` arguments.
+Copy all of the `scripts` task, paste it, and update `src()` with `paths`
 and `site.js` with `filename`:
 
 [[[ code('8c1bfa72f3') ]]]
@@ -139,14 +139,14 @@ keep those paths, then pass `site.js`:
 
 [[[ code('5f1e38dfaf') ]]]
 
-Delete the 2 files in `web/js` and try it!
+Delete `site.js` and try it!
 
 ```bash
 gulp
 ```
 
-And `site.js` is back! Now when you need a page-specific JavaScript file,
-just add another `addScript` call here. Feeling powerful?
+On hey, welcome back `site.js`. Now when you need a page-specific JavaScript
+file, just add another `addScript` call here. Feeling powerful?
 
 What else can you do? Well, if you're into CoffeeScript, you can grab a plugin
-for that a mix it right in. Do whatever you want.
+for that and mix it right in. Do whatever you want.
