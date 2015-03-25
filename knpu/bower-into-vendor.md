@@ -2,9 +2,8 @@
 
 Great news! We've minified and combined all our CSS into just one file. Oh,
 except for the Bootstrap CSS! We have two good options. First, we could
-point the link to a public Bootstrap CDN. Or second, we can cram the bootstrap
-styling right into `main.css`. Let's do that - it's a lot more interesting
-anyways.
+point the link to a public Bootstrap CDN. Or we could cram the bootstrap
+styling right into `main.css`. Let's do that - it's a lot more interesting.
 
 ## Bower!
 
@@ -64,8 +63,8 @@ lives. Notice, it's *not* a Sass file - just regular old CSS. There actually
 *is* a Sass version of Bootstrap, and you can totally use this instead
 if you want to control your Bootstrap variables.
 
-So, can we push plain CSS files through our Sass-processing `addStyle` function?
-Sure! Let's add `config.bowerDir` then `/bootstrap/dist/css/bootstrap.css`:
+But the question is, can we push plain CSS files through our Sass-processing
+`addStyle` function? Sure! Let's add `config.bowerDir` then `/bootstrap/dist/css/bootstrap.css`:
 
 [[[ code('78a7bd2da4') ]]]
 
@@ -94,7 +93,7 @@ to process styles, whether those are CSS or Sass files.
 [[[ code('6c4ed160a0') ]]]
 
 We also need to change that name on the `default` task. Ooops, and before
-we re-start Gulp, also change the name on the `watch` task to `styles`:
+restarting Gulp, also change the name on the `watch` task to `styles`:
 
 [[[ code('9a0df77178') ]]]
  

@@ -103,7 +103,7 @@ npm install --save-dev gulp-uglify
 We don't need the `require` line though, because `gulp-plugins-require` takes
 care of that for us. We can go straight to work. Copy the `minifyCss` line so
 that we have the cool `--production` flag behavior. Paste it and change things
-say `plugins.uglify()`:
+to say `plugins.uglify()`:
 
 [[[ code('3326152a0e') ]]]
 

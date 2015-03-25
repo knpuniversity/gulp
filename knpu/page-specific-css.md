@@ -2,7 +2,7 @@
 
 RAWR! Um, click on the T-rex. Here, we get personal with Mr Tyranosaur. His
 big image has a class called `dino-img-show` that's not used *anywhere* else
-on this site. But the CSS behind this lives in `styles.scss`. And  means
+on this site. But the CSS behind this lives in `styles.scss`. And that means
 we're including it on *every* page.
 
 That's a bummer! I need the flexibility to have *page-specific* CSS files,

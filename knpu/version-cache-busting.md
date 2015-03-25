@@ -1,12 +1,12 @@
 # Versioning to Bust Cache
 
-Hey, we've got a nice setup! With `gulp` running, if we update any Sass files,
-this `main.css` gets regenerated. But there's just one problem: when we deploy
-an updated `main.css`, how can we bust browser cache so our existing visitors
-get the new stuff?
+We've got a real nice setup here! With `gulp` running, if we update any Sass
+files, this `main.css` gets regenerated. But there's just one problem: when
+we deploy an updated `main.css`, how can we bust browser cache so our visitors
+see the new stuff?
 
 To solve this easily, we could go into the template, add a `?v=` to the end,
-then manually increment this on each deploy. Of course, I'll *definitely*
+then manually update this on each deploy. Of course, I'll *definitely*
 forget to do this, so let's find a better way with Gulp.
 
 ## Introducing gulp-rev
@@ -14,14 +14,13 @@ forget to do this, so let's find a better way with Gulp.
 Search for the plugin `gulp-rev`, as in "revision". Open up its docs. This
 plugin does one thing: you point it at a file - like `unicorn.css` - and
 it changes the name, adding a hash on the end. That hash is based on the
-contents, so it'll change whenever the file changes. Here's the kicker: if
-you can *somehow* make your template *automatically* point to whatever the
-latest hashed filename is, you've got instant cache-busting. Every time you
-deploy with update, your CSS file will have a new name.
+contents, so it'll change whenever the file changes. 
 
-And getting this all to work will be easier than you think.
+So let's think about this: if we can *somehow* make our template *automatically*
+point to whatever the latest hashed filename is, we've got instant cache-busting.
+Every time we deploy with an update, your CSS file will have a new name.
 
-Copy the install line and get that going:
+I want to do that, so copy the install line and get that downloading:
 
 ```bash
 npm install --save-dev gulp-rev
@@ -46,12 +45,12 @@ Now run `gulp`:
 gulp
 ```
 
-Go check out `web/css`. Instead of `main.css` and `dinosaur.css`, we have
-`main-50d83f6c.css` and `dinosaur-32046959.css` And conveniently, the maps
-got renamed too - so our browser will still find those.
+Go check out that directory. Instead of `main.css` and `dinosaur.css`, we
+have `main-50d83f6c.css` and `dinosaur-32046959.css` And the maps also got
+renamed - so our browser will still find them.
 
 But you probably also see the problem: the site is broken! We're still including
-the old `main.css` in our layout.
+the old `main.css` file in our layout.
 
 ## Dumping the rev-manifest.json File
 
@@ -65,7 +64,7 @@ the map would update, and so would our code.
 And of course, the `gulp-rev` people thought of this! They call that map
 a "manifest". To get `gulp-rev` to create that for us, we need to ask it
 *really* nicely. At the end, add another `pipe()` to `plugins.rev.manifest()`
-and tell that *where* we ant the manifest. Let's put it next to our assets
+and tell that *where* we want the manifest. Let's put it next to our assets
 at `app/Resources/assets/rev-manifest.json`:
 
 [[[ code('6259490c4f') ]]]
@@ -79,10 +78,12 @@ There's one more interesting step: `pipe()` this into `gulp.dest('.')`:
 
 What?
 
+### What do Multiple dest()'s mean?
+
 So far, we've always had one `gulp.src()` at the top and one `gulp.dest()`
 at the bottom, but you can have more. Our first `gulp.dest()` writes the
 CSS file. But once we pipe to `plugins.rev.manifest()`, the Gulp stream changes.
-Instead of being the CSS file, the manifest is now being passed through the
+Instead of being the CSS file, the *manifest* is now being passed through the
 pipes. So the last `gulp.dest()` just writes that file relative to the root
 directory.
 
@@ -92,7 +93,7 @@ Let me show you. Stop gulp and restart:
 gulp
 ```
 
-There's our `rev-manifest.json` file:
+And there's our `rev-manifest.json` file:
 
 ```json
 {
@@ -100,7 +101,7 @@ There's our `rev-manifest.json` file:
 }
 ```
 
-That's our map from `main.css` to its actual filename right now. It *is*
+It holds the map from `main.css` to its actual filename right now. It *is*
 missing `dinosaur.css`, but we'll fix that in a second.
 
 ### Fixing the manifest base directory
@@ -110,8 +111,8 @@ to put JavaScript paths into the manifest too. So I *really* need this to
 have the full public path - `css/main.css` - instead of just the filename.
 
 So why does it *just* say `main.css`? Because when we call `addStyle()`,
-we pass in *only* `main.css`. That means `main.css` is passed to `concat()`
-and that becomes the path that's used by `gulp-rev`.
+we pass in *only* `main.css`. This is passed to `concat()` and that becomes
+the path that's used by `gulp-rev`.
 
 The fix is easy! Inside `concat()`, update it to `css/` then the filename.
 That changes the filename that's inside the Gulp stream. To keep the file
@@ -126,7 +127,7 @@ Run `gulp` again:
 gulp
 ```
 
-Now, the `rev-manifest.json` has the `css/` prefix we wanted:
+Now, `rev-manifest.json` has the `css/` prefix we need:
 
 ```json
 {
@@ -161,15 +162,14 @@ Yes! The hard part is done - this is a perfect manifest file:
 ### Making the link href Dynamic
 
 Phew! We're in the homestretch - the Gulp stuff is done. The only thing left
-is to make our PHP use the manifest file to change `css/main.css` to something
-else.
+is to make our PHP use the manifest file.
 
 Since I'm in Twig, I'm going to invent a new filter called `asset_version`:
 
 [[[ code('fa008b040d') ]]]
 
-Let's put the logic behind this! I already created an empty Twig extension
-file we can use:
+Let's make it do something! I already created an empty Twig extension
+file to get us started:
 
 [[[ code('a47d88902f') ]]]
 
@@ -189,16 +189,17 @@ trying to version. So for us, `css/main.css`.
 
 Ok, our job is simple: open up `rev-manifest.json`, find the path, then return
 its versioned filename value. The path to that file is `$this->appDir` - I've
-already setup that property to point at the `app/` directory - then
+already setup that property to point to the `app/` directory - then
 `/Resources/assets/rev-manifest.json`:
 
 [[[ code('6d1ad6320f') ]]]
 
 With the power of TV, I'll magically add the next few lines. First, throw
-a clear exception if the file is missing. Next, read the file, decode the
+a clear exception if the file is missing. Next, open it up, decode the
 JSON, and set the map to an `$assets` variable. Since the manifest file has
 the original filename as the key, let's throw one more exception if the file
-isn't in the map. And finally, return that mapped value!
+isn't in the map. I want to know when I mess up. And finally, return that
+mapped value!
 
 [[[ code('d362df0433') ]]]
 
@@ -208,21 +209,21 @@ Let's give it a shot! Take a deep breath and refresh. Victory! Our beautiful
 site is back - the hashed filename shows up in the source.
 
 Ok ok, let's play with it. Open `layout.scss` and give everything a red background.
-The Gulp watch robots are working in the background, so I immediately see
+The Gulp watch robots are working, so I immediately see
 a brand new hashed `main.css` file in `web/css`. But will our layout automatically
 update to the new filename? Refresh to find out. Yes! The new CSS filename
 pops up and the site has this subtle red background. 
 
 Go back and undo that change. Things go right back to green. Oh, and we do
 have one other CSS file on the dino show page. It *should* be giving us a
-little more margin below the T-Rex, but it's 404'ing. We need to make it
+little more space below the T-Rex, but it's 404'ing. We need to make it
 use the versioned filename.
 
 So, open up `show.html.twig` and give it the `asset_version` filter:
 
 [[[ code('3800968093') ]]]
 
-Refresh - perfect! No 404 error, and are button can get a little breathing
+Refresh - perfect! No 404 error, and our button can get a little breathing
 room from the T-Rex. It took a little setup, but congrats - you've got automatic
 cache-busting.
 

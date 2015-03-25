@@ -1,7 +1,7 @@
 # Publish Fonts to web
 
-Even though I look like lunch to them, I do love dinosaurs. So on the dinosaur
-page, I'll show my affection with a little heart icon, using Font Awesome.
+Even though I look like lunch to them, I *love* dinosaurs. So on the dinosaur
+page, I want to show my affection with a little heart icon, using Font Awesome.
 In the `h1`, add `<i class="fa fa-heart"></i>`:
 
 [[[ code('5e7ec3bd35') ]]]
@@ -12,7 +12,7 @@ us! At the command line, say `bower install font-awesome --save` - that's
 similar to the `--save-dev` option with npm.
 
 When that's done, we can find it in `vendor/bower_components/font-awesome`.
-*And* or `bower.json` file has a new entry in it:
+*And* our `bower.json` file has a new entry in it:
 
 [[[ code('213589a858') ]]]
 
@@ -91,5 +91,5 @@ accidentally adding them to your repo, add this path to `.gitignore`.
 
 [[[ code('b23d0725a3') ]]]
 
-Thats it! And if there's anything else you need to move around, just use
+That's it! And if there's anything else you need to move around, just use
 our handy `app.copy()`.

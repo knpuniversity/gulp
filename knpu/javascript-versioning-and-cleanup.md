@@ -1,13 +1,13 @@
 # JavaScript Versioning and Cleanup
 
 After a while, this versioning magic is going to clutter up our `web/css`
-directory. That's really no problem - our `ref-manifest.json` always updates
+directory. That's really no problem - our `rev-manifest.json` always updates
 to point to the right one. So one good solution to all this clutter is to
 ignore it! We don't need to perfect *everything*.
 
 But since you're still listening, let's clean that up.
 
-Let's grab an npm library called `del` to help us with this. So:
+Grab an npm library called `del` to help us with this. So:
 
 ```bash
 npm install del --save-dev
@@ -20,8 +20,8 @@ This is *not* a gulp plugin, so we need to go to the top and add
 
 This library does what it sounds like - it helps delete files.
 
-We want to have a new way to clean up our generated files. That sounds like
-a perfect opportunity to add a new task! Call it `clean`:
+We need a way to clean up our generated files. That sounds like a perfect
+opportunity to add a new task! Call it `clean`:
 
 [[[ code('ba9b748851') ]]]
 
