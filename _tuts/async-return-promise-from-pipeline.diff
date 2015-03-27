@@ -1,0 +1,40 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 7668859..2e53f30 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -96,7 +96,7 @@ gulp.task('styles', function() {
+         config.assetsDir+'/sass/dinosaur.scss'
+     ], 'dinosaur.css');
+ 
+-    pipeline.run(app.addStyle);
++    return pipeline.run(app.addStyle);
+ });
+ 
+ gulp.task('scripts', function() {
+@@ -107,14 +107,14 @@ gulp.task('scripts', function() {
+         config.assetsDir+'/js/main.js'
+     ], 'site.js');
+ 
+-    pipeline.run(app.addScript);
++    return pipeline.run(app.addScript);
+ });
+ 
+ gulp.task('fonts', function() {
+     return app.copy(
+         config.bowerDir+'/font-awesome/fonts/*',
+         'web/fonts'
+-    ).on('end', function() {console.log('finished fonts!')});
++    );
+ });
+ 
+ gulp.task('clean', function() {
+@@ -124,8 +124,7 @@ gulp.task('clean', function() {
+     del.sync('web/fonts/*');
+ });
+ 
+-gulp.task('watch', ['fonts'], function() {
+-    console.log('starting watch!');
++gulp.task('watch', function() {
+     gulp.watch(config.assetsDir+'/'+config.sassPattern, ['styles']);
+     gulp.watch(config.assetsDir+'/js/**/*.js', ['scripts']);
+ });

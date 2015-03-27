@@ -159,7 +159,47 @@
             "id": "version-include-javascript",
             "name": "Version: Include JavaScript",
             "description": null
+        },
+        {
+            "id": "async-logging-to-see-the-async",
+            "name": "Async: Logging to see the async",
+            "description": null
+        },
+        {
+            "id": "async-using-on-to-run-addstyle-serially",
+            "name": "Async: Using on to run addStyle serially",
+            "description": null
+        },
+        {
+            "id": "async-using-the-pipeline",
+            "name": "Async: Using the Pipeline",
+            "description": null
+        },
+        {
+            "id": "async-remove-logging",
+            "name": "Async: Remove logging",
+            "description": null
+        },
+        {
+            "id": "async-pipelining-the-scripts",
+            "name": "Async: Pipelining the scripts",
+            "description": null
+        },
+        {
+            "id": "async-running-tasks-in-series",
+            "name": "Async: Running tasks in series",
+            "description": null
+        },
+        {
+            "id": "async-returning-a-stream-promise-to-enforce-task-order",
+            "name": "Async: Returning a stream\/promise to enforce task order",
+            "description": null
+        },
+        {
+            "id": "async-return-promise-from-pipeline",
+            "name": "Async: Return promise from pipeline",
+            "description": null
         }
     ],
-    "sha": "ae8c31a1a385721448167fa151312883cc04101b"
+    "sha": "c9c21821639b63b662388a70bb6d9a95d9b3d396"
 }

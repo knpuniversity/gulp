@@ -1,0 +1,30 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 5e986e9..cd6f9c9 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -47,7 +47,7 @@ app.addScript = function(paths, outputFilename) {
+ };
+ 
+ app.copy = function(srcFiles, outputDir) {
+-    gulp.src(srcFiles)
++    return gulp.src(srcFiles)
+         .pipe(gulp.dest(outputDir));
+ };
+ 
+@@ -114,7 +114,7 @@ gulp.task('fonts', function() {
+     app.copy(
+         config.bowerDir+'/font-awesome/fonts/*',
+         'web/fonts'
+-    );
++    ).on('end', function() {console.log('finished fonts!')});
+ });
+ 
+ gulp.task('clean', function() {
+@@ -125,6 +125,7 @@ gulp.task('clean', function() {
+ });
+ 
+ gulp.task('watch', function() {
++    console.log('starting watch!');
+     gulp.watch(config.assetsDir+'/'+config.sassPattern, ['styles']);
+     gulp.watch(config.assetsDir+'/js/**/*.js', ['scripts']);
+ });

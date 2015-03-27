@@ -1,0 +1,29 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index 18c20e0..5e986e9 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -31,7 +31,7 @@ app.addStyle = function(paths, outputFilename) {
+ };
+ 
+ app.addScript = function(paths, outputFilename) {
+-    gulp.src(paths)
++    return gulp.src(paths)
+         .pipe(plugins.plumber())
+         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
+         .pipe(plugins.concat('js/'+outputFilename))
+@@ -100,10 +100,14 @@ gulp.task('styles', function() {
+ });
+ 
+ gulp.task('scripts', function() {
+-    app.addScript([
++    var pipeline = new Pipeline();
++
++    pipeline.add([
+         config.bowerDir+'/jquery/dist/jquery.js',
+         config.assetsDir+'/js/main.js'
+     ], 'site.js');
++
++    pipeline.run(app.addScript);
+ });
+ 
+ gulp.task('fonts', function() {

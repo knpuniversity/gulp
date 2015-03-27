@@ -1,0 +1,85 @@
+diff --git a/gulpfile.js b/gulpfile.js
+index ed05b44..3636e2b 100644
+--- a/gulpfile.js
++++ b/gulpfile.js
+@@ -1,6 +1,7 @@
+ var gulp = require('gulp');
+ var plugins = require('gulp-load-plugins')();
+ var del = require('del');
++var Q = require('q');
+ 
+ var config = {
+     assetsDir: 'app/Resources/assets',
+@@ -50,17 +51,52 @@ app.copy = function(srcFiles, outputDir) {
+         .pipe(gulp.dest(outputDir));
+ };
+ 
++var Pipeline = function() {
++    this.entries = [];
++};
++Pipeline.prototype.add = function() {
++    this.entries.push(arguments);
++};
++
++Pipeline.prototype.run = function(callable) {
++    var deferred = Q.defer();
++    var i = 0;
++    var entries = this.entries;
++
++    var runNextEntry = function() {
++        // see if we're all done looping
++        if (typeof entries[i] === 'undefined') {
++            deferred.resolve();
++            return;
++        }
++
++        // pass app as this, though we should avoid using "this"
++        // in those functions anyways
++        callable.apply(app, entries[i]).on('end', function() {
++            i++;
++            runNextEntry();
++        });
++    };
++    runNextEntry();
++
++    return deferred.promise;
++};
++
+ gulp.task('styles', function() {
+-    app.addStyle([
++    var pipeline = new Pipeline();
++
++    pipeline.add([
+         config.bowerDir+'/bootstrap/dist/css/bootstrap.css',
+         config.bowerDir+'/font-awesome/css/font-awesome.css',
+         config.assetsDir+'/sass/layout.scss',
+         config.assetsDir+'/sass/styles.scss'
+-    ], 'main.css').on('end', function() {
+-        app.addStyle([
+-            config.assetsDir+'/sass/dinosaur.scss'
+-        ], 'dinosaur.css');
+-    });
++    ], 'main.css');
++
++    pipeline.add([
++        config.assetsDir+'/sass/dinosaur.scss'
++    ], 'dinosaur.css');
++
++    pipeline.run(app.addStyle);
+ });
+ 
+ gulp.task('scripts', function() {
+diff --git a/package.json b/package.json
+index 405bf89..605553c 100644
+--- a/package.json
++++ b/package.json
+@@ -17,7 +17,8 @@
+     "gulp-sass": "^1.3.3",
+     "gulp-sourcemaps": "^1.5.0",
+     "gulp-uglify": "^1.1.0",
+-    "gulp-util": "^3.0.4"
++    "gulp-util": "^3.0.4",
++    "q": "^1.2.0"
+   },
+   "scripts": {
+     "test": "echo \"Error: no test specified\" && exit 1"
