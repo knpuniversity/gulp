@@ -74,7 +74,7 @@ I know, it's ugly - we'll fix it, I promise! But let's see if it works:
 gulp
 ```
 
-Perfect! `main.css` starts and end. *Then* `dinosaur.css` starts.
+Perfect! `main.css` starts and ends. *Then* `dinosaur.css` starts.
 
 ## Using the Pipeline
 
