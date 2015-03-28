@@ -59,3 +59,7 @@ chapters:
         is_finished: false
     javascript-versioning-and-cleanup:
         is_finished: false
+    on-end-async-and-listeners:
+        is_finished: false
+    task-ordering:
+        is_finished: false
