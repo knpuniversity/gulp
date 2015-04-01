@@ -48,17 +48,17 @@ chapters:
     errors-call-the-plumber:
         video_key:  agcnfsaxzq
     page-specific-css:
-        is_finished: false
+        video_key:  q14oudva6x
     bower-into-vendor:
-        is_finished: false
+        video_key:  tow27b143v
     javascript:
-        is_finished: false
+        video_key:  62lgu25fci
     publishing-fonts:
-        is_finished: false
+        video_key:  x7w50w803g
     version-cache-busting:
-        is_finished: false
+        video_key:  q9xm1o5rzl
     javascript-versioning-and-cleanup:
-        is_finished: false
+        video_key:  odtbdakov3
     on-end-async-and-listeners:
         is_finished: false
     task-ordering:
