@@ -11,11 +11,11 @@ Is that true?
 
 Log a message once `fonts` is done:
 
-[[[ code('') ]]]
+TODO CODE
 
 And also add a message right when the `watch` task starts:
 
-[[[ code('') ]]]
+TODO CODE
 
 The default task defines `fonts` *then* `watch`, and I want to see if that
 order matters.
@@ -30,7 +30,7 @@ It exploded! It say we're calling `on` on something undefined. This happens
 with our code because up in `app.copy`, we're not returning the stream. So
 yea, that would be undefined:
 
-[[[ code('') ]]]
+TODO CODE
 
 Ok, now try it. It's all out of order! Even though `fonts` is listed
 before `watch` in the dependency list, `watch` starts *way* before `fonts`
@@ -40,7 +40,7 @@ starts them all at once. Once they *all* finish, `default` runs.
 But what if we *needed* `fonts` to finish before `watch` started? Well, it's
 the same trick: add `fonts` as a dependency to `watch`:
 
-[[[ code('') ]]]
+TODO CODE
 
 Try it out:
 
@@ -55,7 +55,7 @@ Gulp stream. If it doesn't, Gulp actually has no idea when `fonts` finishes
 task, since `app.copy` returns a Gulp stream. Now, Gulp can know when `fonts`
 *truly* finishes its work.
 
-[[[ code('') ]]]
+TODO CODE
 
 Ok, try it once more:
 
@@ -74,7 +74,7 @@ a Promise or a Gulp stream. This means we should return one of these from
 
 We don't need the `fonts` dependency, so take it off. And remove the logging:
 
-[[[ code('') ]]]
+TODO CODE
 
 So if we should always return a stream or promise, how can we do that for
 `styles`? It doesn't have a single stream - it has two that are combined
