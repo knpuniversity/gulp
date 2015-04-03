@@ -60,6 +60,6 @@ chapters:
     javascript-versioning-and-cleanup:
         video_key:  odtbdakov3
     on-end-async-and-listeners:
-        is_finished: false
+        video_key:  058d0aok81
     task-ordering:
         is_finished: false
