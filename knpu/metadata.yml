@@ -21,7 +21,8 @@ summary: |
     Yay!
 
 illustration: gulp.png
-hasVideoDownload: 0
+hasVideoDownload: 1
+videoDownloadExtension: mov
 
 chapters:
     first-gulp:
