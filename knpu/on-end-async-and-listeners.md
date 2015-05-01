@@ -104,7 +104,7 @@ and use `pipeline.add()` again. Woops, typo on pipeline!
 
 [[[ code('2986000001') ]]]
 
-`pipeline.add` is basically queing those to be run. So at the end, call
+`pipeline.add` is basically queuing those to be run. So at the end, call
 `pipeline.run()` and pass it the actual function it should call:
 
 [[[ code('2ec176a960') ]]]
