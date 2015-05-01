@@ -21,7 +21,8 @@ summary: |
     Yay!
 
 illustration: gulp.png
-hasVideoDownload: 0
+hasVideoDownload: 1
+videoDownloadExtension: mov
 
 chapters:
     first-gulp:
@@ -40,7 +41,7 @@ chapters:
     minify:
         video_key:  162i1zfk9z
     minify-only-production:
-        video_key:  ixe58lmw9t
+        video_key:  4uom8lyrpv
     sourcemaps-only-dev:
         video_key:  06w47crcvf
     load-plugins:
@@ -50,16 +51,16 @@ chapters:
     page-specific-css:
         video_key:  q14oudva6x
     bower-into-vendor:
-        video_key:  tow27b143v
+        video_key:  ux2tvv95vj
     javascript:
         video_key:  62lgu25fci
     publishing-fonts:
-        video_key:  x7w50w803g
+        video_key:  6ywm6ip8qq
     version-cache-busting:
         video_key:  q9xm1o5rzl
     javascript-versioning-and-cleanup:
         video_key:  odtbdakov3
     on-end-async-and-listeners:
-        is_finished: false
+        video_key:  058d0aok81
     task-ordering:
-        is_finished: false
+        video_key:  ny7ebqu7ps
