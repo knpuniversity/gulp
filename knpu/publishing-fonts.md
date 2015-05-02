@@ -31,7 +31,7 @@ Refresh! Hearts for dino friends! So we're done right?
 Well, actually, it *shouldn't* work. In the inspector, I've got 404 errors
 for the fontawesome font files. The only reason the heart shows up is that
 I *happen* to have the fontawesome font file installed on my computer. But
-this will be a broken heart for everyone else in the (Jurrassic) world.
+this will be a broken heart for everyone else in the (Jurassic) world.
 
 Font Awesome goes up one level from its CSS and looks for a `fonts/` directory.
 Since its code lives in `main.css`, it goes up one level and looks for `fonts/`
