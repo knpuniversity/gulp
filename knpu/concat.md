@@ -1,4 +1,4 @@
-# Combining (conat) Files
+# Combining (concat) Files
 
 We only have one CSS file, and gosh, that's just not very realistic. So,
 let's create a second one. Call it, `layout.scss`. To keep the dinosaurs
