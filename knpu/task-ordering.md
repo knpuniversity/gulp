@@ -11,11 +11,11 @@ Is that true?
 
 Log a message once `fonts` is done:
 
-TODO CODE
+[[[ code('cf5beff7d3') ]]]
 
 And also add a message right when the `watch` task starts:
 
-TODO CODE
+[[[ code('c2c4b25ffe') ]]]
 
 The default task defines `fonts` *then* `watch`, and I want to see if that
 order matters.
@@ -30,7 +30,7 @@ It exploded! It say we're calling `on` on something undefined. This happens
 with our code because up in `app.copy`, we're not returning the stream. So
 yea, that would be undefined:
 
-TODO CODE
+[[[ code('849da86032') ]]]
 
 Ok, now try it. It's all out of order! Even though `fonts` is listed
 before `watch` in the dependency list, `watch` starts *way* before `fonts`
@@ -40,7 +40,7 @@ starts them all at once. Once they *all* finish, `default` runs.
 But what if we *needed* `fonts` to finish before `watch` started? Well, it's
 the same trick: add `fonts` as a dependency to `watch`:
 
-TODO CODE
+[[[ code('10f8938488') ]]]
 
 Try it out:
 
@@ -52,10 +52,11 @@ But surprise! It's still running out of order. Here's the reason: if you're
 dependent on a task like `fonts`, that task *must* return a Promise or a
 Gulp stream. If it doesn't, Gulp actually has no idea when `fonts` finishes
 - so it just runs `watch` right away. So, `return app.copy` from the `fonts`
-task, since `app.copy` returns a Gulp stream. Now, Gulp can know when `fonts`
-*truly* finishes its work.
+task, since `app.copy` returns a Gulp stream.
 
-TODO CODE
+[[[ code('80077b8356') ]]]
+
+Now, Gulp can know when `fonts` *truly* finishes its work.
 
 Ok, try it once more:
 
@@ -74,17 +75,26 @@ a Promise or a Gulp stream. This means we should return one of these from
 
 We don't need the `fonts` dependency, so take it off. And remove the logging:
 
-TODO CODE
+[[[ code('fd532971d2') ]]]
 
 So if we should always return a stream or promise, how can we do that for
 `styles`? It doesn't have a single stream - it has two that are combined
 into the pipeline. We need to wait until *both* of them are finished.
 
-Oh, the answer is so nice: just `return pipeline.run()`. This isn't magic.
-I wrote the Pipeline code, and I made `run()` return a Promise that resolves
-once *everything* is done. And if you know anything about promises, the guts
-should make sense to you. But if you have questions, just ask in the comments.
+Oh, the answer is so nice: just `return pipeline.run()`:
 
-Make sure we didn't break anything. Yep, it all still looks great. So if
-you eventually need to create a task that's dependent on `styles` or `scripts`
-finishing first, it'll work.
+[[[ code('78afacb351') ]]]
+
+This isn't magic. I wrote the Pipeline code, and I made `run()` return a
+Promise that resolves once *everything* is done. And if you know anything
+about promises, the guts should make sense to you. But if you have questions,
+just ask in the comments.
+
+Make sure we didn't break anything.
+
+```bash
+gulp
+```
+
+Yep, it all still looks great. So if you eventually need to create a task
+that's dependent on `styles` or `scripts` finishing first, it'll work.
