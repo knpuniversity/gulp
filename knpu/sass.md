@@ -37,7 +37,7 @@ Hey, there it is! When another developer clones the project, they just need
 to run `npm install` and it'll download this stuff automatically. Oh, and
 the `gulp-sass` plugin preps a sass binary in the background. If you have
 any issues installing - especially you wild Windows users - check out the
-[node-sass](https://github.com/sass/node-sass) docs.
+[node-sass](https://github.com/sass/node-sass#install) docs.
 
 ## The Classic pipe Workflow
 
