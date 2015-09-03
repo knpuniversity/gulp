@@ -41,3 +41,15 @@ gulp
 Let's mess up `layout.scss` again! This time, gulp *does* show us the error,
 it just doesn't die anymore. How nice! When we fix the error, it recompiles.
 Robots, get back to work!
+
+***TIP
+Plumber prevents gulp from throwing a proper error exit code. When building for
+production, you may *want* a proper error. If so, try using `plumber()` only in
+development:
+
+```javascript
+.pipe(gulpif(!util.env.production, plumber()))
+```
+
+Thanks to Nicolas Sauveur for the tip!
+***
