@@ -22,45 +22,44 @@ summary: |
 
 illustration: gulp.png
 hasVideoDownload: 1
-videoDownloadExtension: mov
 
 chapters:
     first-gulp:
         is_free:    true
-        video_key:  az76ruggwv
+        video_key:    140716277
     sass:
         is_free:    true
-        video_key:  gej7ixjzhh
+        video_key:    140716276
     sourcemaps:
         is_free:    true
-        video_key:  icxv2ura52
+        video_key:    140716278
     watch:
-        video_key:  p7peh3l8qb
+        video_key:    140716274
     concat:
-        video_key:  yl2hmqr6c8
+        video_key:    140716280
     minify:
-        video_key:  162i1zfk9z
+        video_key:    140716275
     minify-only-production:
-        video_key:  4uom8lyrpv
+        video_key:    140716288
     sourcemaps-only-dev:
-        video_key:  06w47crcvf
+        video_key:    140716287
     load-plugins:
-        video_key:  c8ndrkv27x
+        video_key:    140716286
     errors-call-the-plumber:
-        video_key:  agcnfsaxzq
+        video_key:    140716283
     page-specific-css:
-        video_key:  q14oudva6x
+        video_key:    140716282
     bower-into-vendor:
-        video_key:  ux2tvv95vj
+        video_key:    140716289
     javascript:
-        video_key:  62lgu25fci
+        video_key:    140716291
     publishing-fonts:
-        video_key:  6ywm6ip8qq
+        video_key:    140716292
     version-cache-busting:
-        video_key:  q9xm1o5rzl
+        video_key:    140716294
     javascript-versioning-and-cleanup:
-        video_key:  odtbdakov3
+        video_key:    140716293
     on-end-async-and-listeners:
-        video_key:  058d0aok81
+        video_key:    140716295
     task-ordering:
-        video_key:  ny7ebqu7ps
+        video_key:    140716296
