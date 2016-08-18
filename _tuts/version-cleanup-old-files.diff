@@ -46,7 +46,7 @@ index 5306d06..3bf94c1 100644
 -gulp.task('default', ['styles', 'scripts', 'fonts', 'watch']);
 +gulp.task('default', ['clean', 'styles', 'scripts', 'fonts', 'watch']);
 diff --git a/package.json b/package.json
-index 4b1481d..405bf89 100644
+index 8d03d0e..3e1cee1 100644
 --- a/package.json
 +++ b/package.json
 @@ -6,6 +6,7 @@

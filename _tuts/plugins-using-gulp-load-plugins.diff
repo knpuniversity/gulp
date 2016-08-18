@@ -37,7 +37,7 @@ index 3469a6b..01c017a 100644
  });
  
 diff --git a/package.json b/package.json
-index 5dc27ef..1eb49ee 100644
+index 82838f5..3ee7037 100644
 --- a/package.json
 +++ b/package.json
 @@ -9,6 +9,7 @@
@@ -46,5 +46,5 @@ index 5dc27ef..1eb49ee 100644
      "gulp-if": "^1.2.5",
 +    "gulp-load-plugins": "^0.8.1",
      "gulp-minify-css": "^0.5.1",
-     "gulp-sass": "^1.3.3",
+     "gulp-sass": "^2.3.2",
      "gulp-sourcemaps": "^1.5.0",
