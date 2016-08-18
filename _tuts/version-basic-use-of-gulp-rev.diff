@@ -1,8 +1,8 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index c078fc7..670e8b5 100644
+index 4ea5b01..ae7d28b 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -17,6 +17,7 @@ app.addStyle = function(paths, outputFilename) {
+@@ -20,6 +20,7 @@ app.addStyle = function(paths, outputFilename) {
          .pipe(plugins.sass())
          .pipe(plugins.concat(outputFilename))
          .pipe(config.production ? plugins.minifyCss() : plugins.util.noop())

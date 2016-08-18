@@ -12,12 +12,12 @@ index 9a5a34f..b70622a 100644
      </body>
  </html>
 diff --git a/gulpfile.js b/gulpfile.js
-index 3bf94c1..29fecee 100644
+index 2a84307..6ddaccb 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -33,10 +33,16 @@ app.addScript = function(paths, outputFilename) {
-     gulp.src(paths)
-         .pipe(plugins.plumber())
+@@ -39,10 +39,16 @@ app.addScript = function(paths, outputFilename) {
+             this.emit('end');
+         }))
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
 -        .pipe(plugins.concat(outputFilename))
 +        .pipe(plugins.concat('js/'+outputFilename))

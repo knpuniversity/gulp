@@ -1,8 +1,8 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index 4480d3c..5306d06 100644
+index 7553fa6..ea616e6 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -21,7 +21,9 @@ app.addStyle = function(paths, outputFilename) {
+@@ -24,7 +24,9 @@ app.addStyle = function(paths, outputFilename) {
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))
          .pipe(gulp.dest('web'))
          // write the rev-manifest.json file for gulp-rev

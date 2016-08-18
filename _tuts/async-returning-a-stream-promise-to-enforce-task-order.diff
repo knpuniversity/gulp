@@ -1,8 +1,8 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index cd6f9c9..7668859 100644
+index 74039e3..69cbdce 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -111,7 +111,7 @@ gulp.task('scripts', function() {
+@@ -117,7 +117,7 @@ gulp.task('scripts', function() {
  });
  
  gulp.task('fonts', function() {
@@ -11,7 +11,7 @@ index cd6f9c9..7668859 100644
          config.bowerDir+'/font-awesome/fonts/*',
          'web/fonts'
      ).on('end', function() {console.log('finished fonts!')});
-@@ -124,7 +124,7 @@ gulp.task('clean', function() {
+@@ -130,7 +130,7 @@ gulp.task('clean', function() {
      del.sync('web/fonts/*');
  });
  

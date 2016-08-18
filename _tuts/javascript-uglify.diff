@@ -1,9 +1,9 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index 11f9f50..c6079ca 100644
+index 2853dac..de63d5e 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -41,6 +41,7 @@ gulp.task('scripts', function() {
-         .pipe(plugins.plumber())
+@@ -47,6 +47,7 @@ gulp.task('scripts', function() {
+         }))
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
          .pipe(plugins.concat('site.js'))
 +        .pipe(config.production ? plugins.uglify() : plugins.util.noop())

@@ -9,10 +9,10 @@ index b3b1145..51f7451 100644
 -
 +/app/Resources/assets/rev-manifest.json
 diff --git a/gulpfile.js b/gulpfile.js
-index 670e8b5..7a758d7 100644
+index ae7d28b..86a0da1 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -19,7 +19,10 @@ app.addStyle = function(paths, outputFilename) {
+@@ -22,7 +22,10 @@ app.addStyle = function(paths, outputFilename) {
          .pipe(config.production ? plugins.minifyCss() : plugins.util.noop())
          .pipe(plugins.rev())
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.write('.')))

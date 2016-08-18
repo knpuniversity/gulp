@@ -1,14 +1,17 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index c6079ca..4c5f0ea 100644
+index de63d5e..dcbe199 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -21,6 +21,16 @@ app.addStyle = function(paths, outputFilename) {
+@@ -24,6 +24,19 @@ app.addStyle = function(paths, outputFilename) {
          .pipe(gulp.dest('web/css'));
  };
  
 +app.addScript = function(paths, outputFilename) {
 +    gulp.src(paths)
-+        .pipe(plugins.plumber())
++        .pipe(plugins.plumber(function(error) {
++            console.log(error.toString());
++            this.emit('end');
++        }))
 +        .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
 +        .pipe(plugins.concat(outputFilename))
 +        .pipe(config.production ? plugins.uglify() : plugins.util.noop())
@@ -19,7 +22,7 @@ index c6079ca..4c5f0ea 100644
  gulp.task('styles', function() {
      app.addStyle([
          config.bowerDir+'/bootstrap/dist/css/bootstrap.css',
-@@ -34,16 +44,10 @@ gulp.task('styles', function() {
+@@ -37,19 +50,10 @@ gulp.task('styles', function() {
  });
  
  gulp.task('scripts', function() {
@@ -28,7 +31,10 @@ index c6079ca..4c5f0ea 100644
          config.bowerDir+'/jquery/dist/jquery.js',
          config.assetsDir+'/js/main.js'
 -    ])
--        .pipe(plugins.plumber())
+-        .pipe(plugins.plumber(function(error) {
+-            console.log(error.toString());
+-            this.emit('end');
+-        }))
 -        .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
 -        .pipe(plugins.concat('site.js'))
 -        .pipe(config.production ? plugins.uglify() : plugins.util.noop())

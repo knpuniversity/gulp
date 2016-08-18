@@ -33,7 +33,7 @@ index 272eba4..88e7e01 100644
  
              <!-- Google Fonts -->
 diff --git a/gulpfile.js b/gulpfile.js
-index fb36942..53ca57e 100644
+index c8ff245..6d3bbc9 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -5,7 +5,8 @@ var config = {
@@ -46,7 +46,7 @@ index fb36942..53ca57e 100644
  };
  var app = {};
  
-@@ -22,6 +23,7 @@ app.addStyle = function(paths, outputFilename) {
+@@ -25,6 +26,7 @@ app.addStyle = function(paths, outputFilename) {
  
  gulp.task('sass', function() {
      app.addStyle([

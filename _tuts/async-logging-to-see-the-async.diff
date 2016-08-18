@@ -1,5 +1,5 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index 29fecee..4fb3d67 100644
+index 6ddaccb..74012a7 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -13,7 +13,7 @@ var config = {
@@ -8,10 +8,10 @@ index 29fecee..4fb3d67 100644
  app.addStyle = function(paths, outputFilename) {
 -    gulp.src(paths)
 +    gulp.src(paths).on('end', function() { console.log('start '+outputFilename)})
-         .pipe(plugins.plumber())
-         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
-         .pipe(plugins.sass())
-@@ -26,7 +26,7 @@ app.addStyle = function(paths, outputFilename) {
+         .pipe(plugins.plumber(function(error) {
+             console.log(error.toString());
+             this.emit('end');
+@@ -29,7 +29,7 @@ app.addStyle = function(paths, outputFilename) {
          .pipe(plugins.rev.manifest(config.revManifestPath, {
              merge: true
          }))

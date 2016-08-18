@@ -1,5 +1,5 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index 4fb3d67..ed05b44 100644
+index 74012a7..1e22449 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -13,7 +13,7 @@ var config = {
@@ -8,10 +8,10 @@ index 4fb3d67..ed05b44 100644
  app.addStyle = function(paths, outputFilename) {
 -    gulp.src(paths).on('end', function() { console.log('start '+outputFilename)})
 +    return gulp.src(paths).on('end', function() { console.log('start '+outputFilename)})
-         .pipe(plugins.plumber())
-         .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
-         .pipe(plugins.sass())
-@@ -56,11 +56,11 @@ gulp.task('styles', function() {
+         .pipe(plugins.plumber(function(error) {
+             console.log(error.toString());
+             this.emit('end');
+@@ -62,11 +62,11 @@ gulp.task('styles', function() {
          config.bowerDir+'/font-awesome/css/font-awesome.css',
          config.assetsDir+'/sass/layout.scss',
          config.assetsDir+'/sass/styles.scss'

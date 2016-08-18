@@ -1,8 +1,8 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index 7668859..2e53f30 100644
+index 69cbdce..c478f27 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -96,7 +96,7 @@ gulp.task('styles', function() {
+@@ -102,7 +102,7 @@ gulp.task('styles', function() {
          config.assetsDir+'/sass/dinosaur.scss'
      ], 'dinosaur.css');
  
@@ -11,7 +11,7 @@ index 7668859..2e53f30 100644
  });
  
  gulp.task('scripts', function() {
-@@ -107,14 +107,14 @@ gulp.task('scripts', function() {
+@@ -113,14 +113,14 @@ gulp.task('scripts', function() {
          config.assetsDir+'/js/main.js'
      ], 'site.js');
  
@@ -28,7 +28,7 @@ index 7668859..2e53f30 100644
  });
  
  gulp.task('clean', function() {
-@@ -124,8 +124,7 @@ gulp.task('clean', function() {
+@@ -130,8 +130,7 @@ gulp.task('clean', function() {
      del.sync('web/fonts/*');
  });
  

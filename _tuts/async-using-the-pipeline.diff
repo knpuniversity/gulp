@@ -1,5 +1,5 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index ed05b44..3636e2b 100644
+index 1e22449..a27fcbe 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
 @@ -1,6 +1,7 @@
@@ -10,7 +10,7 @@ index ed05b44..3636e2b 100644
  
  var config = {
      assetsDir: 'app/Resources/assets',
-@@ -50,17 +51,52 @@ app.copy = function(srcFiles, outputDir) {
+@@ -56,17 +57,52 @@ app.copy = function(srcFiles, outputDir) {
          .pipe(gulp.dest(outputDir));
  };
  

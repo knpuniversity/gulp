@@ -1,12 +1,15 @@
 diff --git a/gulpfile.js b/gulpfile.js
-index 01c017a..f176518 100644
+index 01c017a..06d818c 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -10,6 +10,7 @@ var config = {
+@@ -10,6 +10,10 @@ var config = {
  
  gulp.task('sass', function() {
      gulp.src(config.assetsDir+'/'+config.sassPattern)
-+        .pipe(plugins.plumber())
++        .pipe(plugins.plumber(function(error) {
++            console.log(error.toString());
++            this.emit('end');
++        }))
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
          .pipe(plugins.sass())
          .pipe(plugins.concat('main.css'))

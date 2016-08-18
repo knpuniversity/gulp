@@ -30,10 +30,10 @@ index ba9a9ae..658905f 100644
      <div class="dino-header text-center">
          <h1>{{ dino.name }} the {{ dino.type }}</h1>
 diff --git a/gulpfile.js b/gulpfile.js
-index 69bdbcf..fb36942 100644
+index 17e7699..c8ff245 100644
 --- a/gulpfile.js
 +++ b/gulpfile.js
-@@ -7,19 +7,28 @@ var config = {
+@@ -7,22 +7,31 @@ var config = {
      production: !!plugins.util.env.production,
      sourceMaps: !plugins.util.env.production
  };
@@ -46,7 +46,10 @@ index 69bdbcf..fb36942 100644
 -    ])
 +app.addStyle = function(paths, outputFilename) {
 +    gulp.src(paths)
-         .pipe(plugins.plumber())
+         .pipe(plugins.plumber(function(error) {
+             console.log(error.toString());
+             this.emit('end');
+         }))
          .pipe(plugins.if(config.sourceMaps, plugins.sourcemaps.init()))
          .pipe(plugins.sass())
 -        .pipe(plugins.concat('main.css'))
