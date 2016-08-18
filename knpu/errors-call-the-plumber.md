@@ -32,6 +32,12 @@ any logic that might cause an error. So right after `gulp.src`, say
 
 [[[ code('e178041187') ]]]
 
+***TIP
+The `function(error)` callback function was *not* shown in the video, but
+should be included. This prevents an
+[issue when running gulp watch](https://knpuniversity.com/screencast/gulp/on-end-async-and-listeners#comment-2844811049).
+***
+
 And yea, that's it. Go back and get gulp back and running:
 
 ```bash
@@ -48,7 +54,10 @@ production, you may *want* a proper error. If so, try using `plumber()` only in
 development:
 
 ```javascript
-.pipe(gulpif(!util.env.production, plumber()))
+.pipe(gulpif(!util.env.production, plumber(function(error) {
+    console.log(error.toString());
+    this.emit('end');
+})))
 ```
 
 Thanks to Nicolas Sauveur for the tip!
