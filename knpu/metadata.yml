@@ -15,13 +15,12 @@ summary: |
     * Have page-specific CSS/JS files
     * Cache-bust with versioning
     
-    We'll actually use Laravel's Exlixir as a guide, but make things work
+    We'll actually use Laravel's Elixir as a guide, but make things work
     for any PHP project and learn how we can make Gulp do whatever we need.
     
     Yay!
 
 illustration: gulp.png
-hasVideoDownload: 1
 
 chapters:
     first-gulp:
