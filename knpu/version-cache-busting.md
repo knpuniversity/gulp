@@ -233,8 +233,6 @@ You can make the `getAssetVersion` function more efficient by following the advi
 comment
 ***
 
-http://disq.us/p/1bpagqf
-
 ## Don't commit the manifest
 
 But should we commit the `rev-manifest.json` file to source control? I'd
