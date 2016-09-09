@@ -227,6 +227,14 @@ Refresh - perfect! No 404 error, and our button can get a little breathing
 room from the T-Rex. It took a little setup, but congrats - you've got automatic
 cache-busting.
 
+***TIP
+You can make the `getAssetVersion` function more efficient by following the advice in 
+[this](https://knpuniversity.com/screencast/gulp/version-cache-busting#comment-2884388919)
+comment
+***
+
+http://disq.us/p/1bpagqf
+
 ## Don't commit the manifest
 
 But should we commit the `rev-manifest.json` file to source control? I'd
