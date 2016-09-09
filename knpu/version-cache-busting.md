@@ -228,9 +228,8 @@ room from the T-Rex. It took a little setup, but congrats - you've got automatic
 cache-busting.
 
 ***TIP
-You can make the `getAssetVersion` function more efficient by following the advice in 
-[this](https://knpuniversity.com/screencast/gulp/version-cache-busting#comment-2884388919)
-comment
+You can make the `getAssetVersion()` function more efficient by following the advice in 
+[this][1] comment.
 ***
 
 ## Don't commit the manifest
@@ -240,3 +239,6 @@ say no: it's generated automatically by Gulp. So, finish things off by adding
 it to your `.gitignore` file:
 
 [[[ code('5d7070fcf7') ]]]
+
+
+[1]: https://knpuniversity.com/screencast/gulp/version-cache-busting#comment-2884388919
