@@ -233,9 +233,9 @@ You can make the `getAssetVersion()` function more efficient by following the ad
 ***
 
 ***TIP
-In projects using the _symfony/asset_ component, it is possible to avoid
-having to put a filter in every call to the `asset` function by using version strategies
-instead of a filter. An example can be found [here][2].
+In Symfony, it's *also* possible to *avoid* needing to use the filter by
+leveraging a cool thing called "version strategies". Check out the details
+posted by a helpful user [here][2].
 ***
 
 ## Don't commit the manifest
