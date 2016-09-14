@@ -232,6 +232,12 @@ You can make the `getAssetVersion()` function more efficient by following the ad
 [this][1] comment.
 ***
 
+***TIP
+In projects using the _symfony/asset_ component, it is possible to avoid
+having to put a filter in every call to the `asset` function by using version strategies
+instead of a filter. An example can be found [here][2].
+***
+
 ## Don't commit the manifest
 
 But should we commit the `rev-manifest.json` file to source control? I'd
@@ -242,3 +248,4 @@ it to your `.gitignore` file:
 
 
 [1]: https://knpuniversity.com/screencast/gulp/version-cache-busting#comment-2884388919
+[2]: https://knpuniversity.com/screencast/gulp/version-cache-busting#comment-2886834003
