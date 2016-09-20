@@ -22,6 +22,10 @@ summary: |
 
 illustration: gulp.png
 
+tuts_hero:
+    start_step: start
+    finish_step: async-return-promise-from-pipeline
+
 chapters:
     first-gulp:
         is_free:    true
