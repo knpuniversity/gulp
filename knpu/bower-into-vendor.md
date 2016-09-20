@@ -48,7 +48,7 @@ folder.
 
 ## Adding CSS Files to our Gulp Styles Stream
 
-But even I wanted to have 2 separate link tags in my layout, I can't:
+But even if I wanted to have 2 separate link tags in my layout, I can't:
 Bootstrap no longer calls the `web/` directory home. So, get rid of its
 link tag.
 
